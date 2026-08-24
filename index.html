@@ -14,6 +14,20 @@
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/sections.css">
+<script>
+(function(){
+  try {
+    var pos = JSON.parse(localStorage.getItem('msc_image_positions') || '{}');
+    var css = '';
+    for (var sel in pos) {
+      var p = pos[sel];
+      var scale = p.scale !== undefined ? p.scale : 1;
+      css += sel + ' { animation: none; opacity: 1; transform-origin: top left; transform: translate(' + (p.left||0) + 'px, ' + (p.top||0) + 'px) scale(' + scale + '); }\n';
+    }
+    if (css) document.write('<style>' + css + '</style>');
+  } catch(e){}
+})();
+</script>
 </head>
 <body>
 
@@ -93,10 +107,8 @@
         </a>
       </div>
 
-      <div class="hero-support-img">
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wgARCAHpAt4DASIAAhEBAxEB/8QAHAABAAEFAQEAAAAAAAAAAAAAAAMBAgQFBgcI/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAECAwQFBv/aAAwDAQACEAMQAAAA" alt="Illustration of a therapist and client having a supportive conversation in a warm, comfortable setting." loading="lazy" width="734" height="489">
+        <img class="hero-support-img" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wgARCAHpAt4DASIAAhEBAxEB/8QAHAABAAEFAQEAAAAAAAAAAAAAAAMBAgQFBgcI/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAECAwQFBv/aAAwDAQACEAMQAAAA" alt="Illustration of a therapist and client having a supportive conversation in a warm, comfortable setting." loading="lazy" width="734" height="489">
       </div>
-    </div>
 
     <div class="hero-media">
       <img class="hero-logo-img" id="heroLogoImg" src="assets/logo.png" alt="Mind Science Clinic">
@@ -192,42 +204,29 @@
       <div class="team-grid reveal-group">
         <div class="team-card reveal">
           <div class="avatar-photo" style="background:linear-gradient(135deg,var(--purple),var(--magenta));">
-            <div class="avatar-fallback">NN</div>
+            <div class="avatar-fallback">TC</div>
           </div>
-          <h3>Name</h3>
-          <span class="role">Qualification</span>
-          <p>Bio goes here — a short paragraph about this team member's background, approach, and how they work with clients.</p>
+          <h3>Tanishka Chavan</h3>
+          <span class="role">Counselling Psychologist</span>
+          <p>I am a Master's-level psychologist, trained in various therapeutic approaches, as well as psychological assessments, screening, personality/career assessment, and other counselling-related assessments. My approach is holistic and eclectic, with a strong focus on creating a safe, supportive, and trusting space for you. I believe in understanding your experiences within the context of your life and using a combination of therapeutic techniques to personalize the therapeutic process to your individual needs, concerns, and goals.</p>
           <div class="team-specialties">
-            <span class="team-tag">Specialty</span>
-            <span class="team-tag">Specialty</span>
+            <span class="team-tag">Therapeutic Assessments</span>
+            <span class="team-tag">Holistic &amp; Eclectic Approach</span>
           </div>
         </div>
         <div class="team-card reveal">
           <div class="avatar-photo" style="background:linear-gradient(135deg,var(--teal),var(--orange));">
-            <div class="avatar-fallback">NN</div>
+            <div class="avatar-fallback">RB</div>
           </div>
-          <h3>Name</h3>
-          <span class="role">Qualification</span>
-          <p>Bio goes here — a short paragraph about this team member's background, approach, and how they work with clients.</p>
+          <h3>Rajlaxmi Bhingare</h3>
+          <span class="role">Counselling Psychologist</span>
+          <p>I'm a Psychologist who believes in creating a safe and comfortable space where individuals can openly explore their thoughts, emotions, and experiences. My approach draws from CBT and REBT, along with practical strategies such as grounding techniques, to help individuals manage emotional distress and develop healthier coping skills. I also conduct psychological assessments to better understand cognitive, emotional, behavioural, and personality-related concerns. My aim is to support individuals in developing greater self-awareness, building effective coping strategies, and working towards meaningful psychological well-being.</p>
           <div class="team-specialties">
-            <span class="team-tag">Specialty</span>
-            <span class="team-tag">Specialty</span>
-          </div>
-        </div>
-        <div class="team-card reveal">
-          <div class="avatar-photo" style="background:linear-gradient(135deg,var(--orange),var(--purple));">
-            <div class="avatar-fallback">NN</div>
-          </div>
-          <h3>Name</h3>
-          <span class="role">Qualification</span>
-          <p>Bio goes here — a short paragraph about this team member's background, approach, and how they work with clients.</p>
-          <div class="team-specialties">
-            <span class="team-tag">Specialty</span>
-            <span class="team-tag">Specialty</span>
+            <span class="team-tag">CBT &amp; REBT</span>
+            <span class="team-tag">Psychological Assessments</span>
           </div>
         </div>
       </div>
-      <p class="team-note">Names, qualifications, bios, and specialties above are placeholders — swap in real photos, credentials, and copy for each team member. See the <code>.avatar-photo</code> background for where to place a real headshot (e.g. <code>&lt;img src="photo.jpg"&gt;</code> inside the frame).</p>
     </div>
   </div>
 </section>
@@ -542,8 +541,8 @@
   <div class="wrap book-grid">
     <div class="book-info reveal">
       <span class="eyebrow"><span class="dot"></span>Book a session</span>
-      <h2>Let's find you a time to talk</h2>
-      <p>Fill in a few details and our care team will reach out within 24 hours to confirm your appointment — in person or online.</p>
+      <h2>Take the first step</h2>
+      <p>Fill in a few details and our team will reach out within 24 hours to confirm your appointment.</p>
       <div class="info-list">
         <div class="info-item">
           <div class="ic" style="background:var(--magenta-light);">
@@ -555,13 +554,13 @@
           <div class="ic" style="background:var(--teal-light);">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 2" stroke="#048A93" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#048A93" stroke-width="1.7"/></svg>
           </div>
-          <div><h4>45–50 minute sessions</h4><p>In-clinic or video call, whichever feels right.</p></div>
+          <div><h4>45–60 minute sessions</h4><p>In-clinic or video call, whichever feels right.</p></div>
         </div>
         <div class="info-item">
           <div class="ic" style="background:var(--orange-light);">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="#E1751A" stroke-width="1.7"/></svg>
           </div>
-          <div><h4>Private &amp; secure</h4><p>Your information is only ever seen by your care team.</p></div>
+          <div><h4>Private &amp; Confidential</h4><p>Your personal information and therapeutic conversations are kept confidential and accessible only to authorised professionals involved in your care.</p></div>
         </div>
       </div>
     </div>
@@ -593,7 +592,9 @@
             <select id="sessionType" name="sessionType" required>
               <option value="" disabled selected>Choose one</option>
               <option>Individual Therapy</option>
-              <option>Couples &amp; Family Therapy</option>
+              <option>Couples Therapy</option>
+              <option>Family Therapy</option>
+              <option>Child &amp; Adolescent</option>
               <option>Other Services</option>
             </select>
           </div>
@@ -626,7 +627,7 @@
         </div>
         <div class="form-row">
           <div class="field full">
-            <label for="message">What would you like to talk about? (optional)</label>
+            <label for="message">What areas would you like support with (optional)</label>
             <textarea id="message" name="message" placeholder="Share as much or as little as you'd like..."></textarea>
           </div>
         </div>
@@ -646,7 +647,7 @@
 </section>
 
 <!-- ================= MAP & DIRECTIONS ================= -->
-<section id="visit" class="map-section">
+<section id="visit" class="map-section" style="margin-top: 60px;">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>Visit the clinic</span>
@@ -655,26 +656,25 @@
     </div>
     <div class="map-grid reveal-group">
       <div class="map-card reveal">
-        <h3 style="font-size:19px; margin-bottom:6px;">MindScience Clinic</h3>
-        <p style="color:var(--ink-soft); font-size:14.5px;">Placeholder address — replace with the clinic's exact street address, floor/unit number, and any landmark that helps people find it.</p>
+        <h3 style="font-size:19px; margin-bottom:16px;">MindScience Clinic</h3>
         <div class="info-list">
           <div class="info-item">
             <div class="ic" style="background:var(--magenta-light);">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="#B80F6E" stroke-width="1.7"/></svg>
             </div>
-            <div><h4>Address</h4><p>Pune, Maharashtra — full address here</p></div>
+            <div><h4>Address</h4><p>1, Jayashree Apartment, 769/5 A, PYC Colony, Deccan, Pune, Maharashtra 411004.</p></div>
           </div>
           <div class="info-item">
             <div class="ic" style="background:var(--teal-light);">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 2" stroke="#048A93" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#048A93" stroke-width="1.7"/></svg>
             </div>
-            <div><h4>Clinic hours</h4><p>Mon–Sat, 10:00 AM – 7:00 PM</p></div>
+            <div><h4>Clinic hours</h4><p>10am to 6pm</p></div>
           </div>
           <div class="info-item">
             <div class="ic" style="background:var(--orange-light);">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="3" stroke="#E1751A" stroke-width="1.7"/><path d="M8 2v4M16 2v4M3 10h18" stroke="#E1751A" stroke-width="1.7" stroke-linecap="round"/></svg>
             </div>
-            <div><h4>Parking</h4><p>Note any on-site or nearby parking here</p></div>
+            <div><h4>Parking</h4><p>Only roadside parking</p></div>
           </div>
         </div>
         <a href="https://www.google.com/maps/dir/?api=1&destination=18.51732767951109,73.83725928844026" target="_blank" rel="noopener" class="btn btn-secondary btn-sm directions-btn">
