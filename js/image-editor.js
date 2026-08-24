@@ -38,9 +38,9 @@
     // and will override our saved transform once they finish. We must cancel them first.
     el.style.animation = 'none';
     el.style.opacity = '1'; // Element may be hidden if reveal animation hasn't fired yet
-    el.style.transform = `translate(${pos.left}px, ${pos.top}px)`;
+    const scale = pos.scale !== undefined ? pos.scale : 1; el.style.transform = `translate(${pos.left || 0}px, ${pos.top || 0}px) scale(${scale})`;;
     el.setAttribute('data-offset-x', pos.left);
-    el.setAttribute('data-offset-y', pos.top);
+    el.setAttribute('data-offset-y', pos.top || 0); el.setAttribute('data-scale', scale);
     // Also add 'in' class in case it's a .reveal element (so it isn't hidden by IntersectionObserver logic)
     el.classList.add('in');
   }
@@ -84,6 +84,7 @@
           el.style.transform = '';
           el.removeAttribute('data-offset-x');
           el.removeAttribute('data-offset-y');
+          el.removeAttribute('data-scale');
         }
       });
       if(activeWrappers.length > 0) {
@@ -302,3 +303,5 @@
   });
 
 })();
+
+
