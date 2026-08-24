@@ -11,11 +11,17 @@
   /* ── Editable images: add IDs to any you want draggable ── */
   const DRAGGABLE_SELECTORS = [
     '#heroLogoImg',
-    '.hero-support-img',
     '.footer-brand > div:first-child',
     '.footer-mho-logo',
     '.hero-media-frame',
-    '.map-embed'
+    '.map-embed',
+    '#val-img-1',
+    '#val-img-2',
+    '#val-img-3',
+    '#val-img-4',
+    '#val-img-5',
+    '#val-img-6',
+    '#val-img-7'
   ];
 
   /* ── Load saved positions from localStorage ── */
