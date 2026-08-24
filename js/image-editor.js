@@ -125,7 +125,104 @@
       }, 1200);
     });
 
+    const publishBtn = document.createElement('button');
+    publishBtn.textContent = '📋 Publish';
+    publishBtn.title = 'Generate CSS to make your layout permanent for everyone';
+    publishBtn.style.cssText = `
+      background: #5f35bd; color: #fff; border: none; padding: 6px 14px;
+      border-radius: 999px; font-size: 12px; font-weight: 700;
+      cursor: pointer; font-family: sans-serif;
+    `;
+    publishBtn.addEventListener('click', function () {
+      const positions = loadPositions();
+      const keys = Object.keys(positions);
+      if (!keys.length) {
+        alert('No saved positions yet. Drag & save something first!');
+        return;
+      }
+      let css = '/* ── Baked layout positions – paste into css/layout.css ── */\n';
+      keys.forEach(function (sel) {
+        const p = positions[sel];
+        const scale = p.scale !== undefined ? p.scale : 1;
+        const x = p.left || 0;
+        const y = p.top || 0;
+        css += `${sel} { transform-origin: top left; transform: translate(${x}px, ${y}px) scale(${scale}); animation: none; }\n`;
+      });
+
+      // Build modal
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+        z-index: 999999; display: flex; align-items: center; justify-content: center;
+        font-family: sans-serif;
+      `;
+
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        background: #1a1a2e; color: #fff; border-radius: 16px;
+        padding: 28px 32px; width: 560px; max-width: 90vw; max-height: 80vh;
+        display: flex; flex-direction: column; gap: 14px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      `;
+
+      const title = document.createElement('h3');
+      title.textContent = '📋 Publish Layout';
+      title.style.cssText = 'margin: 0; font-size: 18px;';
+
+      const instructions = document.createElement('p');
+      instructions.innerHTML = 'Copy the CSS below and send it to your developer — they paste it into <code style="background:#ffffff22;padding:2px 6px;border-radius:4px;">css/layout.css</code> to make it permanent for everyone.';
+      instructions.style.cssText = 'margin: 0; font-size: 13px; color: #ccc; line-height: 1.6;';
+
+      const textarea = document.createElement('textarea');
+      textarea.value = css;
+      textarea.readOnly = true;
+      textarea.style.cssText = `
+        background: #0d0d1a; color: #00e676; font-family: monospace; font-size: 12px;
+        border: 1px solid #333; border-radius: 8px; padding: 14px;
+        width: 100%; height: 200px; resize: vertical; box-sizing: border-box;
+      `;
+
+      const copyBtn = document.createElement('button');
+      copyBtn.textContent = 'Copy to Clipboard';
+      copyBtn.style.cssText = `
+        background: #00b248; color: #fff; border: none; padding: 10px 20px;
+        border-radius: 999px; font-size: 13px; font-weight: 700; cursor: pointer;
+        align-self: flex-start;
+      `;
+      copyBtn.addEventListener('click', function () {
+        navigator.clipboard.writeText(css).then(function () {
+          copyBtn.textContent = '✓ Copied!';
+          copyBtn.style.background = '#00e676';
+          setTimeout(() => { copyBtn.textContent = 'Copy to Clipboard'; copyBtn.style.background = '#00b248'; }, 1500);
+        });
+      });
+
+      const closeBtn = document.createElement('button');
+      closeBtn.textContent = '✕ Close';
+      closeBtn.style.cssText = `
+        background: transparent; color: #888; border: none; padding: 10px 20px;
+        border-radius: 999px; font-size: 13px; font-weight: 700; cursor: pointer;
+        align-self: flex-start; margin-left: 8px;
+      `;
+      closeBtn.addEventListener('click', function () { document.body.removeChild(overlay); });
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) document.body.removeChild(overlay); });
+
+      const btnRow = document.createElement('div');
+      btnRow.style.cssText = 'display: flex; align-items: center; flex-wrap: wrap; gap: 8px;';
+      btnRow.appendChild(copyBtn);
+      btnRow.appendChild(closeBtn);
+
+      modal.appendChild(title);
+      modal.appendChild(instructions);
+      modal.appendChild(textarea);
+      modal.appendChild(btnRow);
+      overlay.appendChild(modal);
+      document.body.appendChild(overlay);
+      textarea.select();
+    });
+
     badge.appendChild(saveBtn);
+    badge.appendChild(publishBtn);
     badge.appendChild(resetBtn);
     document.body.appendChild(badge);
     return badge;
