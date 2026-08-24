@@ -37,6 +37,7 @@
     el.style.animation = 'none';
     el.style.opacity = '1';
     const scale = pos.scale !== undefined ? pos.scale : 1;
+    el.style.transformOrigin = 'top left';
     el.style.transform = `translate(${pos.left || 0}px, ${pos.top || 0}px) scale(${scale})`;
     el.setAttribute('data-offset-x', pos.left || 0);
     el.setAttribute('data-offset-y', pos.top || 0);
@@ -134,16 +135,21 @@
     const currentY = parseFloat(el.getAttribute('data-offset-y') || 0);
     const currentScale = parseFloat(el.getAttribute('data-scale') || 1);
 
-    // Temporarily remove transform to get the true base dimensions
+    // Is this a leaf element (img/iframe) or a container div?
+    const isLeaf = el.tagName === 'IMG' || el.tagName === 'IFRAME';
+
+    // Temporarily remove transform to get true base dimensions
     const oldTransform = el.style.transform;
     el.style.transform = 'none';
     const rect = el.getBoundingClientRect();
     const computed = window.getComputedStyle(el);
     el.style.transform = oldTransform;
 
+    // Wrapper handles translation; el handles scale
     wrapper.style.cssText = `
       position: relative; display: block; cursor: grab;
-      width: ${rect.width}px; height: ${rect.height}px;
+      width: ${rect.width}px;
+      height: ${isLeaf ? rect.height + 'px' : 'auto'};
       margin-top: ${computed.marginTop}; margin-bottom: ${computed.marginBottom};
       margin-left: ${computed.marginLeft}; margin-right: ${computed.marginRight};
       outline: 2px dashed #e8158c; outline-offset: 4px;
@@ -151,22 +157,25 @@
       z-index: 1000;
     `;
 
-    // Reset element's own transform and fix it to 100% to fill the wrapper safely
+    // Reset element's own transform — scale only, translate moves to wrapper
     el.style.animation = 'none';
     el.style.opacity = '1';
     el.style.transform = `scale(${currentScale})`;
-    el.setAttribute('data-original-width', el.style.width);
-    el.setAttribute('data-original-height', el.style.height);
+    el.style.transformOrigin = 'top left';
+    el.style.pointerEvents = 'none'; // wrapper captures all mouse events
+
+    // For leaf elements resize to fill wrapper; for containers leave sizing alone
+    if (isLeaf) {
+      el.setAttribute('data-orig-width', el.style.width);
+      el.setAttribute('data-orig-height', el.style.height);
+      el.style.width = '100%';
+      el.style.height = '100%';
+    }
+
     el.setAttribute('data-original-margin', el.style.margin);
     el.setAttribute('data-original-margin-top', el.style.marginTop);
     el.setAttribute('data-original-margin-bottom', el.style.marginBottom);
-
-    el.style.width = '100%';
-    el.style.height = '100%';
     el.style.margin = '0';
-    el.style.marginTop = '0';
-    el.style.marginBottom = '0';
-    el.style.pointerEvents = 'none';
 
     const handle = document.createElement('div');
     handle.className = 'msc-drag-handle';
@@ -174,15 +183,16 @@
     handle.style.cssText = `
       position: absolute; top: 0; left: 0;
       background: #e8158c; color: #fff; font-size: 11px; font-weight: 700;
-      padding: 4px 8px; font-family: sans-serif; opacity: 0.9;
+      padding: 4px 8px; font-family: sans-serif; opacity: 0;
       pointer-events: none; z-index: 1001; white-space: nowrap;
+      transition: opacity 0.15s;
     `;
 
     el.parentNode.insertBefore(wrapper, el);
     wrapper.appendChild(handle);
     wrapper.appendChild(el);
 
-    wrapper.addEventListener('mouseenter', () => { handle.style.opacity = '1'; });
+    wrapper.addEventListener('mouseenter', () => { if (!dragging) handle.style.opacity = '1'; });
     wrapper.addEventListener('mouseleave', () => { if (!dragging) handle.style.opacity = '0'; });
 
     wrapper.addEventListener('mousedown', function (e) {
@@ -213,23 +223,29 @@
   /* ── Remove drag wrapper from an element ── */
   function removeDraggable(wrapper, el) {
     if (wrapper.parentNode) {
-      let finalX = el.getAttribute('data-offset-x') || 0;
-      let finalY = el.getAttribute('data-offset-y') || 0;
-      let finalScale = el.getAttribute('data-scale') || 1;
-      el.style.transform = `translate(${finalX}px, ${finalY}px) scale(${finalScale})`;
+      const finalX     = el.getAttribute('data-offset-x') || 0;
+      const finalY     = el.getAttribute('data-offset-y') || 0;
+      const finalScale = el.getAttribute('data-scale')    || 1;
 
-      el.style.width = el.getAttribute('data-original-width') || '';
-      el.style.height = el.getAttribute('data-original-height') || '';
-      el.style.margin = el.getAttribute('data-original-margin') || '';
-      el.style.marginTop = el.getAttribute('data-original-margin-top') || '';
+      // Restore leaf element sizing if we changed it
+      if (el.hasAttribute('data-orig-width')) {
+        el.style.width  = el.getAttribute('data-orig-width')  || '';
+        el.style.height = el.getAttribute('data-orig-height') || '';
+        el.removeAttribute('data-orig-width');
+        el.removeAttribute('data-orig-height');
+      }
+
+      el.style.margin      = el.getAttribute('data-original-margin')        || '';
+      el.style.marginTop   = el.getAttribute('data-original-margin-top')    || '';
       el.style.marginBottom = el.getAttribute('data-original-margin-bottom') || '';
-      el.style.pointerEvents = '';
 
-      el.removeAttribute('data-original-width');
-      el.removeAttribute('data-original-height');
       el.removeAttribute('data-original-margin');
       el.removeAttribute('data-original-margin-top');
       el.removeAttribute('data-original-margin-bottom');
+
+      el.style.pointerEvents   = '';
+      el.style.transformOrigin = '';
+      el.style.transform = `translate(${finalX}px, ${finalY}px) scale(${finalScale})`;
 
       wrapper.parentNode.insertBefore(el, wrapper);
       wrapper.parentNode.removeChild(wrapper);
