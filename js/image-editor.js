@@ -107,6 +107,7 @@
     // Extract existing transform offset if any
     const currentX = parseFloat(el.getAttribute('data-offset-x') || 0);
     const currentY = parseFloat(el.getAttribute('data-offset-y') || 0);
+    const currentScale = parseFloat(el.getAttribute('data-scale') || 1);
 
     // Freeze dimensions so relative/percentage elements like iframes don't collapse
     const rect = el.getBoundingClientRect();
@@ -303,5 +304,6 @@
   });
 
 })();
+
 
 
