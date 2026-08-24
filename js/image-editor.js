@@ -1,17 +1,7 @@
 'use strict';
 
 (function () {
-  /* ── Owner-only guard ──────────────────────────────────────────────────────
-     The editor is only active when the site is opened locally (file:// or
-     localhost). Visitors on the live hosted site will never see this feature —
-     the keyboard shortcut won't even exist in their session.
-  ── */
-  const isOwner = (
-    window.location.protocol === 'file:' ||
-    window.location.hostname === 'localhost' ||
-    window.location.hostname === '127.0.0.1'
-  );
-  if (!isOwner) return; // Exit silently for all web visitors
+  /* ── Editor is now globally accessible via Ctrl+Shift+E ── */
 
   const STORAGE_KEY = 'msc_image_positions';
   let editMode = false;

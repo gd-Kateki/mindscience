@@ -113,6 +113,13 @@ function alignHeroMedia() {
   const frame = document.querySelector('.hero-media-frame');
   if (!logo || !frame) return;
 
+  try {
+    const saved = JSON.parse(localStorage.getItem('msc_image_positions') || '{}');
+    if (saved['#heroLogoImg']) logo.style.marginTop = '0px';
+    if (saved['.hero-media-frame']) frame.style.marginTop = '0px';
+    if (saved['#heroLogoImg'] || saved['.hero-media-frame']) return;
+  } catch(e) {}
+
   if (window.matchMedia('(max-width: 900px)').matches) {
     logo.style.marginTop = '0px';
     logo.style.marginBottom = '30px';
