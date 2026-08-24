@@ -109,10 +109,13 @@
 
     // Freeze dimensions so relative/percentage elements like iframes don't collapse
     const rect = el.getBoundingClientRect();
+    const computed = window.getComputedStyle(el);
 
     wrapper.style.cssText = `
       position: relative; display: block; cursor: grab;
       width: ${rect.width}px; height: ${rect.height}px;
+      margin-top: ${computed.marginTop}; margin-bottom: ${computed.marginBottom};
+      margin-left: ${computed.marginLeft}; margin-right: ${computed.marginRight};
       outline: 2px dashed #e8158c; outline-offset: 4px;
       transform: translate(${currentX}px, ${currentY}px);
       z-index: 1000;
@@ -124,9 +127,15 @@
     el.style.transform = '';
     el.setAttribute('data-original-width', el.style.width);
     el.setAttribute('data-original-height', el.style.height);
+    el.setAttribute('data-original-margin', el.style.margin);
+    el.setAttribute('data-original-margin-top', el.style.marginTop);
+    el.setAttribute('data-original-margin-bottom', el.style.marginBottom);
+    
     el.style.width = '100%';
     el.style.height = '100%';
     el.style.margin = '0';
+    el.style.marginTop = '0';
+    el.style.marginBottom = '0';
 
     const handle = document.createElement('div');
     handle.className = 'msc-drag-handle';
@@ -174,12 +183,18 @@
       let finalY = el.getAttribute('data-offset-y') || 0;
       el.style.transform = `translate(${finalX}px, ${finalY}px)`;
       
-      // Restore original dimensions
+      // Restore original dimensions and margins
       el.style.width = el.getAttribute('data-original-width') || '';
       el.style.height = el.getAttribute('data-original-height') || '';
-      el.style.margin = '';
+      el.style.margin = el.getAttribute('data-original-margin') || '';
+      el.style.marginTop = el.getAttribute('data-original-margin-top') || '';
+      el.style.marginBottom = el.getAttribute('data-original-margin-bottom') || '';
+      
       el.removeAttribute('data-original-width');
       el.removeAttribute('data-original-height');
+      el.removeAttribute('data-original-margin');
+      el.removeAttribute('data-original-margin-top');
+      el.removeAttribute('data-original-margin-bottom');
 
       wrapper.parentNode.insertBefore(el, wrapper);
       wrapper.parentNode.removeChild(wrapper);
