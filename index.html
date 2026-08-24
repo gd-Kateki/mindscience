@@ -14,24 +14,6 @@
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/sections.css">
-<script>
-  /* Pre-paint transform restore — eliminates jump/flash on page load */
-  (function () {
-    try {
-      var pos = JSON.parse(localStorage.getItem('msc_image_positions') || '{}');
-      var keys = Object.keys(pos);
-      if (!keys.length) return;
-      var css = keys.map(function (sel) {
-        var p = pos[sel];
-        var x = p.left || 0, y = p.top || 0, s = p.scale || 1;
-        return sel + '{transform:translate(' + x + 'px,' + y + 'px) scale(' + s + ')!important;animation:none!important;opacity:1!important;}';
-      }).join('');
-      var style = document.createElement('style');
-      style.textContent = css;
-      document.head.appendChild(style);
-    } catch (e) {}
-  })();
-</script>
 </head>
 <body>
 
