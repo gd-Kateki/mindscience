@@ -44,9 +44,15 @@
 
   /* ── Apply a saved position to an element ── */
   function applyPosition(el, pos) {
+    // CSS animations (fadeUpIn, reveal, etc.) have higher priority than inline styles
+    // and will override our saved transform once they finish. We must cancel them first.
+    el.style.animation = 'none';
+    el.style.opacity = '1'; // Element may be hidden if reveal animation hasn't fired yet
     el.style.transform = `translate(${pos.left}px, ${pos.top}px)`;
     el.setAttribute('data-offset-x', pos.left);
     el.setAttribute('data-offset-y', pos.top);
+    // Also add 'in' class in case it's a .reveal element (so it isn't hidden by IntersectionObserver logic)
+    el.classList.add('in');
   }
 
   /* ── Restore all saved positions on page load ── */
@@ -123,6 +129,8 @@
     `;
 
     // Reset element's own transform and fix it to 100% to fill the wrapper safely
+    el.style.animation = 'none';
+    el.style.opacity = '1';
     el.style.transform = '';
     el.setAttribute('data-original-width', el.style.width);
     el.setAttribute('data-original-height', el.style.height);
