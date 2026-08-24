@@ -96,3 +96,17 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 .footer-legal a:hover { color: var(--orange); }
 
 
+
+/* -- Baked layout positions -- */
+.hero-media-frame { transform-origin: top left; transform: translate(-20px, -460px) scale(1); animation: none; }
+#heroLogoImg { transform-origin: top left; transform: translate(90px, -100px) scale(2.1); animation: none; }
+.footer-brand > div:first-child { transform-origin: top left; transform: translate(0px, 10px) scale(1); animation: none; }
+.footer-mho-logo { transform-origin: top left; transform: translate(-30px, -20px) scale(1); animation: none; }
+.map-embed { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
+#val-img-1 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
+#val-img-2 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
+#val-img-3 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
+#val-img-4 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
+#val-img-5 { transform-origin: top left; transform: translate(0px, 10px) scale(1); animation: none; }
+#val-img-6 { transform-origin: top left; transform: translate(-60px, -100px) scale(2.3); animation: none; }
+#val-img-7 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
