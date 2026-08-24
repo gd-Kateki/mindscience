@@ -121,14 +121,14 @@
       margin-top: ${computed.marginTop}; margin-bottom: ${computed.marginBottom};
       margin-left: ${computed.marginLeft}; margin-right: ${computed.marginRight};
       outline: 2px dashed #e8158c; outline-offset: 4px;
-      transform: translate(${currentX}px, ${currentY}px) scale(${currentScale});
+      transform: translate(${currentX}px, ${currentY}px);
       z-index: 1000;
     `;
 
     // Reset element's own transform and fix it to 100% to fill the wrapper safely
     el.style.animation = 'none';
     el.style.opacity = '1';
-    el.style.transform = '';
+    el.style.transform = `scale(${currentScale})`;
     el.setAttribute('data-original-width', el.style.width);
     el.setAttribute('data-original-height', el.style.height);
     el.setAttribute('data-original-margin', el.style.margin);
@@ -259,8 +259,7 @@
     newLeft = Math.round(newLeft / snap) * snap;
     newTop = Math.round(newTop / snap) * snap;
 
-    let currentScale = parseFloat(dragging.el.getAttribute('data-scale') || 1);
-    dragging.wrapper.style.transform = `translate(${newLeft}px, ${newTop}px) scale(${currentScale})`;
+    dragging.wrapper.style.transform = `translate(${newLeft}px, ${newTop}px)`;
     dragging.el.setAttribute('data-offset-x', newLeft);
     dragging.el.setAttribute('data-offset-y', newTop);
     dragging._pendingLeft = newLeft;
@@ -278,7 +277,12 @@
 
       if (dragging._pendingLeft !== undefined) {
         const positions = loadPositions();
-        positions[dragging.selector] = { left: dragging._pendingLeft, top: dragging._pendingTop };
+        let currentScale = parseFloat(dragging.el.getAttribute('data-scale') || 1);
+        positions[dragging.selector] = { 
+            left: dragging._pendingLeft, 
+            top: dragging._pendingTop,
+            scale: currentScale
+        };
         savePositions(positions);
       }
 
@@ -322,22 +326,19 @@
     if (currentScale < 0.2) currentScale = 0.2;
     if (currentScale > 3) currentScale = 3;
     el.setAttribute('data-scale', currentScale);
-    let finalX = parseFloat(el.getAttribute('data-offset-x') || 0);
-    let finalY = parseFloat(el.getAttribute('data-offset-y') || 0);
-    target.style.transform = `translate(${finalX}px, ${finalY}px) scale(${currentScale})`;
+    el.style.transform = `scale(${currentScale})`;
+    
     const selector = activeWrappers.find(w => w.wrapper === target)?.selector;
     if (selector) {
       const positions = loadPositions();
+      let finalX = parseFloat(el.getAttribute('data-offset-x') || 0);
+      let finalY = parseFloat(el.getAttribute('data-offset-y') || 0);
       if (!positions[selector]) positions[selector] = { left: finalX, top: finalY };
       positions[selector].scale = currentScale;
       savePositions(positions);
     }
   }, { passive: false });
+
+
+
 })();
-
-
-
-
-
-
-
