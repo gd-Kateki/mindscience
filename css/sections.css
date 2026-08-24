@@ -12,7 +12,7 @@
 @media (min-width: 981px) { .values-grid .value-card:last-child:nth-child(3n+1) { grid-column: 2 / 3; } }
 .value-card { background: var(--panel); border-radius: var(--radius-md); padding: 36px 28px; box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease; border: 1.5px solid transparent; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .value-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: var(--shadow); border-color: var(--line); }
-.value-drag-img { height: 160px; width: auto; mix-blend-mode: multiply; margin-bottom: 24px; transition: transform .4s cubic-bezier(.34,1.4,.64,1); cursor: grab; }
+.value-drag-img { height: 160px; width: auto; margin-bottom: 24px; transition: transform .4s cubic-bezier(.34,1.4,.64,1); cursor: grab; }
 .value-card:hover .value-drag-img { transform: scale(1.08) rotate(-2deg); }
 .value-card h3 { font-size: 20px; margin-bottom: 12px; font-weight: 700; color: var(--ink); }
 .value-card p { font-size: 15px; color: var(--ink-soft); line-height: 1.6; }
