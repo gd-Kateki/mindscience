@@ -96,6 +96,33 @@
       }
     });
 
+    const saveBtn = document.createElement('button');
+    saveBtn.textContent = 'Save';
+    saveBtn.style.cssText = `
+      background: #00c853; color: #fff; border: none; padding: 6px 14px;
+      border-radius: 999px; font-size: 12px; font-weight: 700;
+      cursor: pointer; font-family: sans-serif;
+    `;
+    saveBtn.addEventListener('click', function () {
+      const positions = loadPositions();
+      // Ensure all active wrappers are synced
+      activeWrappers.forEach(w => {
+        let finalX = parseFloat(w.el.getAttribute('data-offset-x') || 0);
+        let finalY = parseFloat(w.el.getAttribute('data-offset-y') || 0);
+        let finalScale = parseFloat(w.el.getAttribute('data-scale') || 1);
+        positions[w.selector] = { left: finalX, top: finalY, scale: finalScale };
+      });
+      savePositions(positions);
+      
+      saveBtn.textContent = 'Saved!';
+      saveBtn.style.background = '#00e676';
+      setTimeout(() => {
+        saveBtn.textContent = 'Save';
+        saveBtn.style.background = '#00c853';
+      }, 1000);
+    });
+
+    badge.appendChild(saveBtn);
     badge.appendChild(resetBtn);
     document.body.appendChild(badge);
     return badge;
@@ -111,9 +138,12 @@
     const currentY = parseFloat(el.getAttribute('data-offset-y') || 0);
     const currentScale = parseFloat(el.getAttribute('data-scale') || 1);
 
-    // Freeze dimensions so relative/percentage elements like iframes don't collapse
+    // Temporarily remove transform to get the true base dimensions
+    const oldTransform = el.style.transform;
+    el.style.transform = 'none';
     const rect = el.getBoundingClientRect();
     const computed = window.getComputedStyle(el);
+    el.style.transform = oldTransform;
 
     wrapper.style.cssText = `
       position: relative; display: block; cursor: grab;
