@@ -1,0 +1,35 @@
+:root {
+  --bg: #FFFBF2;
+  --bg-soft: #FFF2E2;
+  --bg-cool: #EAFBFA;
+  --panel: #FFFFFF;
+  --ink: #241B35;
+  --ink-soft: #6B6280;
+  --ink-faint: #948DA6;
+  --magenta: #E8158C;
+  --magenta-deep: #B80F6E;
+  --magenta-light: #FFE1F1;
+  --orange: #FF9635;
+  --orange-deep: #E1751A;
+  --orange-light: #FFECD6;
+  --teal: #00BEC2;
+  --teal-deep: #048A93;
+  --teal-light: #D9FAF9;
+  --purple: #7B4FE0;
+  --purple-deep: #5F35BD;
+  --purple-light: #EEE6FF;
+  --lime: #8ED13F;
+  --lime-deep: #5FA425;
+  --lime-light: #EBFADD;
+  --line: rgba(36, 27, 53, 0.10);
+  --shadow-sm: 0 10px 26px -14px rgba(232, 21, 140, 0.22);
+  --shadow: 0 26px 54px -24px rgba(232, 21, 140, 0.30);
+  --shadow-lg: 0 36px 70px -28px rgba(123, 79, 224, 0.30);
+  --radius-lg: 32px;
+  --radius-md: 22px;
+  --radius-sm: 14px;
+  --radius-pill: 999px;
+  --brand-gradient: linear-gradient(92deg, var(--magenta) 0%, var(--orange) 100%);
+  --brand-gradient-soft: linear-gradient(92deg, var(--magenta-light) 0%, var(--orange-light) 100%);
+  --ribbon-gradient: linear-gradient(90deg, var(--purple) 0%, var(--magenta) 32%, var(--orange) 62%, var(--teal) 100%);
+}
