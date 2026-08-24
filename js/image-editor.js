@@ -119,7 +119,7 @@
       margin-top: ${computed.marginTop}; margin-bottom: ${computed.marginBottom};
       margin-left: ${computed.marginLeft}; margin-right: ${computed.marginRight};
       outline: 2px dashed #e8158c; outline-offset: 4px;
-      transform: translate(${currentX}px, ${currentY}px);
+      transform: translate(${currentX}px, ${currentY}px) scale(${currentScale});
       z-index: 1000;
     `;
 
@@ -183,7 +183,8 @@
       // Re-apply the transform directly to the element before unwrapping
       let finalX = el.getAttribute('data-offset-x') || 0;
       let finalY = el.getAttribute('data-offset-y') || 0;
-      el.style.transform = `translate(${finalX}px, ${finalY}px)`;
+      let finalScale = el.getAttribute('data-scale') || 1;
+      el.style.transform = `translate(${finalX}px, ${finalY}px) scale(${finalScale})`;
       
       // Restore original dimensions and margins
       el.style.width = el.getAttribute('data-original-width') || '';
@@ -256,7 +257,7 @@
     newLeft = Math.round(newLeft / snap) * snap;
     newTop = Math.round(newTop / snap) * snap;
 
-    dragging.wrapper.style.transform = `translate(${newLeft}px, ${newTop}px)`;
+    let currentScale = parseFloat(dragging.el.getAttribute('data-scale') || 1);`n    dragging.wrapper.style.transform = `translate(${newLeft}px, ${newTop}px) scale(${currentScale})`;
     dragging.el.setAttribute('data-offset-x', newLeft);
     dragging.el.setAttribute('data-offset-y', newTop);
     dragging._pendingLeft = newLeft;
@@ -303,7 +304,37 @@
     setTimeout(restoreAllPositions, 50);
   });
 
+
+  document.addEventListener('wheel', function(e) {
+    if (!editMode || !e.shiftKey) return;
+    let target = e.target.closest('.msc-drag-wrapper');
+    if (!target) return;
+    e.preventDefault();
+    const el = target.querySelector(':scope > :not(.msc-drag-handle)');
+    if (!el) return;
+    let currentScale = parseFloat(el.getAttribute('data-scale') || 1);
+    const scaleStep = 0.05;
+    if (e.deltaY < 0) currentScale += scaleStep;
+    else currentScale -= scaleStep;
+    if (currentScale < 0.2) currentScale = 0.2;
+    if (currentScale > 3) currentScale = 3;
+    el.setAttribute('data-scale', currentScale);
+    let finalX = parseFloat(el.getAttribute('data-offset-x') || 0);
+    let finalY = parseFloat(el.getAttribute('data-offset-y') || 0);
+    target.style.transform = `translate(${finalX}px, ${finalY}px) scale(${currentScale})`;
+    const selector = activeWrappers.find(w => w.wrapper === target)?.selector;
+    if (selector) {
+      const positions = loadPositions();
+      if (!positions[selector]) positions[selector] = { left: finalX, top: finalY };
+      positions[selector].scale = currentScale;
+      savePositions(positions);
+    }
+  }, { passive: false });
 })();
+
+
+
+
 
 
 
