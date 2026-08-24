@@ -69,10 +69,11 @@
     badge.innerHTML = '✦ Layout Edit Mode <span style="font-size:11px;opacity:0.6;margin-left:6px;">(Ctrl+Shift+E to exit | Shift+drag = straight line | Shift+scroll = scale)</span>';
     badge.style.cssText = `
       position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-      background: #1a1a2e; color: #fff; padding: 10px 20px; border-radius: 999px;
-      font-size: 14px; font-weight: 600; font-family: sans-serif;
+      background: #1a1a2e; color: #fff; padding: 10px 20px; border-radius: 24px;
+      font-size: 13px; font-weight: 600; font-family: sans-serif;
       box-shadow: 0 8px 24px rgba(0,0,0,0.4); z-index: 99999;
-      display: none; align-items: center; gap: 12px; white-space: nowrap;
+      display: none; align-items: center; gap: 10px; flex-wrap: wrap;
+      max-width: 90vw; justify-content: center;
     `;
 
     const resetBtn = document.createElement('button');
