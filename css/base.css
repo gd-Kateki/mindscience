@@ -17,7 +17,7 @@ section { position: relative; scroll-margin-top: 96px; }
 }
 .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand-gradient); display: inline-block; flex: none; }
 .ribbon-rule { width: 86px; height: 6px; border-radius: 99px; background: var(--ribbon-gradient); background-size: 220% 100%; margin: 0 0 22px; animation: flow 7s linear infinite; }
-.section-head { max-width: 620px; margin-bottom: 48px; }
+.section-head { max-width: 620px; margin-bottom: 36px; }
 .section-head h2 { font-size: clamp(30px, 3.4vw, 44px); margin-bottom: 14px; }
 .section-head p { color: var(--ink-soft); font-size: 16.5px; }
 .section-head.center { margin-left: auto; margin-right: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }

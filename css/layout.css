@@ -60,7 +60,7 @@ header.scrolled .nav-cta { padding: 11px 22px; }
 .hero-art svg { position: relative; z-index: 1; width: 100%; max-width: 460px; animation: floatY 6s ease-in-out infinite; will-change: transform; }
 .hero-illustration { position: relative; z-index: 1; width: 100%; max-width: 520px; aspect-ratio: 561/464; object-fit: contain; animation: floatY 6s ease-in-out infinite; will-change: transform; filter: drop-shadow(0 30px 40px rgba(20,20,60,0.18)); }
 
-.trust-strip { margin-top: 60px; padding-top: 32px; border-top: 1.5px solid var(--line); display: flex; gap: 44px; flex-wrap: wrap; }
+.trust-strip { margin-top: 40px; padding-top: 24px; border-top: 1.5px solid var(--line); display: flex; gap: 44px; flex-wrap: wrap; }
 .trust-item { display: flex; align-items: flex-start; gap: 13px; max-width: 240px; }
 .trust-item .dot { width: 42px; height: 42px; border-radius: 14px; flex: none; display: flex; align-items: center; justify-content: center; }
 .trust-item h4 { font-family: 'Baloo 2', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 3px; }
@@ -96,7 +96,6 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 .footer-legal a:hover { color: var(--orange); }
 
 
-
 /* -- Baked layout positions -- */
 #heroLogoImg { transform-origin: top left; transform: translate(190px, -200px) scale(2.45); animation: none; }
 .footer-brand > div:first-child { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
@@ -110,4 +109,13 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 #val-img-5 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 #val-img-6 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 #val-img-7 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
+
+/* -- Mobile baked-position resets -- */
+@media (max-width: 980px) {
+  #heroLogoImg { transform: translate(0, 0) scale(1.8); }
+  .hero-media-frame { transform: translate(0, 0) scale(1); }
+}
+@media (max-width: 640px) {
+  #heroLogoImg { transform: translate(0, 0) scale(1.4); }
+}
 
