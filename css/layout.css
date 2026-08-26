@@ -77,7 +77,7 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 .footer-brand { display: flex; flex-direction: column; gap: 16px; max-width: 300px; }
 .footer-brand .brand { display: flex; align-items: center; gap: 11px; }
 .footer-brand > div:first-child img { width: 44px; height: 44px; border-radius: 12px; flex: none; background: #fff; padding: 6px; }
-.footer-brand b { font-family: 'Futura-Medium', 'Futura', 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 17px; color: #fff; display: block; }
+.footer-brand b { font-family: 'Futura', 'Futura-Medium', 'Plus Jakarta Sans', sans-serif; font-weight: 400; font-size: 17px; color: #fff; display: block; }
 .footer-brand > p { font-size: 13.5px; color: #B7AFCB; line-height: 1.65; }
 .footer-mho-logo { display: block; margin-left: 0; width: 210px !important; height: auto !important; background: transparent !important; padding: 0 !important; border-radius: 0 !important; opacity: 0.85; transition: opacity .2s ease; }
 .footer-mho-logo:hover { opacity: 1; }
@@ -98,16 +98,16 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 
 
 /* -- Baked layout positions -- */
-.hero-media-frame { transform-origin: top left; transform: translate(-20px, -460px) scale(1); animation: none; }
-#heroLogoImg { transform-origin: top left; transform: translate(90px, -100px) scale(2.1); animation: none; }
-.footer-brand > div:first-child { transform-origin: top left; transform: translate(0px, 10px) scale(1); animation: none; }
-.footer-mho-logo { transform-origin: top left; transform: translate(-30px, -20px) scale(1); animation: none; }
+#heroLogoImg { transform-origin: top left; transform: translate(190px, -200px) scale(2.45); animation: none; }
+.footer-brand > div:first-child { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
+.footer-mho-logo { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
+.hero-media-frame { transform-origin: top left; transform: translate(80px, -450px) scale(1); animation: none; }
 .map-embed { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 #val-img-1 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 #val-img-2 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 #val-img-3 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 #val-img-4 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
-#val-img-5 { transform-origin: top left; transform: translate(0px, 10px) scale(1); animation: none; }
-#val-img-6 { transform-origin: top left; transform: translate(-60px, -100px) scale(2.3); animation: none; }
+#val-img-5 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
+#val-img-6 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 #val-img-7 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 
