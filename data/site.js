@@ -2,7 +2,7 @@ window.DATA_site = {
   "clinic": {
     "name": "MindScience Clinic",
     "tagline": "A calmer mind starts here",
-    "description": "A warm, science-backed space for your mental wellbeing.",
+    "description": "A warm, science-backed space for your mental well-being.",
     "location": "Pune, Maharashtra",
     "address": "Pune, Maharashtra — full address here",
     "phone": "+91 00000 00000",
