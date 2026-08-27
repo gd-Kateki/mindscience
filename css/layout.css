@@ -97,10 +97,10 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 
 
 /* -- Baked layout positions -- */
-#heroLogoImg { transform-origin: top left; transform: translate(190px, -200px) scale(2.45); animation: none; }
+#heroLogoImg { transform-origin: top left; transform: translate(200px, -60px) scale(1.8); animation: none; }
+.hero-media-frame { transform-origin: top left; transform: translate(80px, -390px) scale(1); animation: none; }
 .footer-brand > div:first-child { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
-.footer-mho-logo { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
-.hero-media-frame { transform-origin: top left; transform: translate(80px, -450px) scale(1); animation: none; }
+.footer-mho-logo { transform-origin: top left; transform: translate(-30px, -20px) scale(1); animation: none; }
 .map-embed { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 #val-img-1 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 #val-img-2 { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
