@@ -198,6 +198,7 @@
 
   /* Hero */
   .hero-title-wrap { flex-direction: column; text-align: center; gap: 16px; margin-bottom: 20px; }
+  .hero-media { margin-top: 0; }
   .hero h1 { font-size: 32px; }
   .hero p.lead { font-size: 15.5px; }
   .hero-quote { margin-bottom: 18px; }
