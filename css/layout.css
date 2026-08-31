@@ -32,12 +32,16 @@ header.scrolled .nav-cta { padding: 11px 22px; }
 .hero { padding: 10px 0 60px; overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; text-align: left; }
 .hero-copy { max-width: 560px; justify-self: start; display: flex; flex-direction: column; }
-.hero-media { width: 100%; max-width: 420px; margin: 0 auto; display: block; }
-.hero-logo-img { display: block; height: 110px; width: 110px; object-fit: contain; object-position: center; padding: 16px; background: #ffffff; border-radius: 50%; box-shadow: var(--shadow-sm); border: 1.5px solid var(--line); margin: 0; transform-origin: left top; }
+.hero-title-wrap { display: flex; align-items: center; gap: 24px; margin-bottom: 22px; }
+.hero-title-wrap h1 { margin-bottom: 0; }
+.hero-media { width: 100%; max-width: 420px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+.hero-logo-img { display: block; height: 150px; width: auto; object-fit: contain; margin: 0; transform-origin: left top; }
+.hero-video-frame { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--panel); border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; }
+.video-placeholder { display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--ink-soft); font-weight: 600; font-size: 15px; }
+.video-placeholder svg { color: var(--magenta-deep); }
 .hero-media-frame { width: 100%; aspect-ratio: 9/16; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--panel); border: 1.5px solid var(--line); position: relative; }
 .hero-media-frame iframe { width: 100%; height: 145%; border: none; display: block; position: absolute; top: 0; left: 0; }
-.hero-support-img { width: 100%; height: auto; display: block; aspect-ratio: 734/489; object-fit: cover; margin-top: 36px; border-radius: var(--radius-lg); box-shadow: var(--shadow); border: 1.5px solid var(--line); animation: fadeUpIn .8s cubic-bezier(.2,.7,.2,1) .5s both; }
-.hero h1 { font-size: clamp(38px, 4.6vw, 58px); line-height: 1.08; margin-bottom: 22px; }
+.hero h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 0; }
 .hero h1 .accent { background: var(--ribbon-gradient); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: flow 8s linear infinite; }
 .hero p.lead { font-size: 17.5px; color: var(--ink-soft); max-width: 480px; margin-bottom: 14px; }
 .hero p.lead:last-of-type { margin-bottom: 34px; }
@@ -97,8 +101,8 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 
 
 /* -- Baked layout positions -- */
-#heroLogoImg { transform-origin: top left; transform: translate(200px, -60px) scale(1.8); animation: none; }
-.hero-media-frame { transform-origin: top left; transform: translate(80px, -390px) scale(1); animation: none; }
+#heroLogoImg { transform-origin: top left !important; transform: translate(0px, 0px) scale(1) !important; animation: none !important; }
+.hero-media-frame { transform-origin: top left !important; transform: translate(0px, 0px) scale(1) !important; animation: none !important; }
 .footer-brand > div:first-child { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 .footer-mho-logo { transform-origin: top left; transform: translate(-30px, -30px) scale(1.15); animation: none; }
 .map-embed { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
@@ -112,10 +116,10 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 
 /* -- Mobile baked-position resets -- */
 @media (max-width: 980px) {
-  #heroLogoImg { transform: translate(0, 0) scale(1.8); margin: 0 auto 24px; }
-  .hero-media-frame { transform: translate(0, 0) scale(1); }
+  #heroLogoImg { transform: translate(0, 0) scale(0.8) !important; margin: 0 auto 16px; }
+  .hero-media-frame { transform: translate(0, 0) scale(1) !important; }
 }
 @media (max-width: 640px) {
-  #heroLogoImg { transform: translate(0, 0) scale(1.4); margin: 0 auto 20px; }
+  #heroLogoImg { transform: translate(0, 0) scale(0.7) !important; margin: 0 auto 16px; }
 }
 

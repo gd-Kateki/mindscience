@@ -10,10 +10,8 @@
 
   /* ── Editable images: add IDs to any you want draggable ── */
   const DRAGGABLE_SELECTORS = [
-    '#heroLogoImg',
     '.footer-brand > div:first-child',
     '.footer-mho-logo',
-    '.hero-media-frame',
     '.map-embed',
     '#val-img-1',
     '#val-img-2',
