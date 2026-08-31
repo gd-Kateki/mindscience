@@ -109,37 +109,7 @@ function initUI() {
 document.addEventListener('contentLoaded', initUI);
 
 function alignHeroMedia() {
-  const logo = document.getElementById('heroLogoImg');
-  const frame = document.querySelector('.hero-media-frame');
-  if (!logo || !frame) return;
-
-  if (window.matchMedia('(max-width: 900px)').matches) {
-    logo.style.marginTop = '0px';
-    logo.style.marginBottom = '30px';
-    frame.style.marginTop = '0px';
-    return;
-  }
-
-  const copy = document.querySelector('.hero-copy');
-  const h1 = copy ? copy.querySelector('h1') : null;
-  const lead = copy ? copy.querySelector('p.lead') : null;
-
-  if (h1 && lead) {
-    const h1Top = h1.offsetTop;
-    const leadTop = lead.offsetTop;
-
-    logo.style.marginTop = h1Top + 'px';
-    logo.style.marginBottom = '0px';
-
-    const logoHeight = logo.offsetHeight || 110; 
-    let frameMargin = leadTop - (h1Top + logoHeight);
-    
-    // Push the Instagram frame up slightly closer to the logo
-    frameMargin = frameMargin - 40;
-    if (frameMargin < 30) frameMargin = 30; 
-    
-    frame.style.marginTop = frameMargin + 'px';
-  }
+  return; // Disabled due to layout redesign
 }
 
 window.addEventListener('load', alignHeroMedia);
