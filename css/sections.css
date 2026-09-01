@@ -137,7 +137,8 @@
 
 @media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero .eyebrow { margin: 12px auto 32px; display: flex; width: fit-content; }
+  .hero-header-block { align-items: center; margin: 0 auto; }
+  .hero .eyebrow { margin: 12px 0 32px; justify-content: center; }
   .hero-copy { justify-self: center; max-width: 100%; align-items: center; }
   .hero-copy > .lead { margin-left: auto; margin-right: auto; }
   .hero-support-img { max-width: 560px; margin-left: auto; margin-right: auto; }

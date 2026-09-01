@@ -51,7 +51,8 @@ header.scrolled .nav-cta { padding: 11px 22px; }
 .hero-quote cite { display: block; font-style: normal; font-size: 13.5px; font-weight: 600; color: var(--ink); }
 
 .hero-copy > * { animation: fadeUpIn .8s cubic-bezier(.2,.7,.2,1) both; }
-.hero .eyebrow { margin-top: 16px; margin-bottom: 44px; display: inline-flex; animation: fadeUpIn .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: .05s; }
+.hero-header-block { display: flex; flex-direction: column; width: fit-content; animation: fadeUpIn .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: .05s; }
+.hero .eyebrow { margin-top: 16px; margin-bottom: 44px; display: flex; justify-content: center; width: 100%; animation: none; }
 .hero-copy > h1 { animation-delay: .15s; }
 .hero-copy > .lead { animation-delay: .28s; }
 .hero-copy > .cta-row { animation-delay: .40s; }
