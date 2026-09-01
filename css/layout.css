@@ -30,19 +30,20 @@ header.scrolled .nav-cta { padding: 11px 22px; }
 .nav-banner img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; animation: fadeUpIn .8s cubic-bezier(.2,.7,.2,1) both; }
 
 .hero { padding: 10px 0 60px; overflow: hidden; }
-.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; text-align: left; }
-.hero-copy { max-width: 560px; justify-self: start; display: flex; flex-direction: column; }
-.hero-title-wrap { display: flex; align-items: center; gap: 24px; margin-bottom: 22px; }
-.hero-title-wrap h1 { margin-bottom: 0; }
-.hero-media { width: 100%; max-width: 420px; margin: 60px auto 0; display: flex; flex-direction: column; gap: 24px; }
-.hero-logo-img { display: block; height: 150px; width: auto; object-fit: contain; margin: 0; transform-origin: left top; }
+.hero-grid { display: grid; grid-template-columns: 1fr 420px; gap: 56px; align-items: start; text-align: left; }
+.hero-copy { max-width: 680px; justify-self: start; display: flex; flex-direction: column; }
+.hero-title-wrap { display: flex; align-items: center; gap: 24px; margin-bottom: 22px; margin-left: -12px; }
+.hero-title-wrap h1 { margin: 0; }
+.hero-media { width: 100%; max-width: 420px; margin: 0 0 0 auto; display: flex; flex-direction: column; gap: 24px; }
+.hero-logo-img { display: block; height: 185px; width: auto; object-fit: contain; margin: 0; transform-origin: left top; }
 .hero-video-frame { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--panel); border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; }
 .video-placeholder { display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--ink-soft); font-weight: 600; font-size: 15px; }
 .video-placeholder svg { color: var(--magenta-deep); }
 .hero-media-frame { width: 100%; aspect-ratio: 3/4; max-height: 560px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--panel); border: 1.5px solid var(--line); position: relative; }
 .hero-media-frame iframe { width: 100%; height: 145%; border: none; display: block; position: absolute; top: 0; left: 0; }
-.hero h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 0; }
+.hero h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin: 0; }
 .hero h1 .accent { background: var(--ribbon-gradient); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: flow 8s linear infinite; }
+.hero h1 .hero-subline { font-size: 0.78em; line-height: 1.1; display: block; }
 .hero p.lead { font-size: 17.5px; color: var(--ink-soft); max-width: 480px; margin-bottom: 14px; }
 .hero p.lead:last-of-type { margin-bottom: 34px; }
 .hero-quote { margin: 0 0 24px; padding: 4px 0 4px 20px; border-left: 3px solid var(--teal); max-width: 520px; }
@@ -50,7 +51,7 @@ header.scrolled .nav-cta { padding: 11px 22px; }
 .hero-quote cite { display: block; font-style: normal; font-size: 13.5px; font-weight: 600; color: var(--ink); }
 
 .hero-copy > * { animation: fadeUpIn .8s cubic-bezier(.2,.7,.2,1) both; }
-.hero-copy > .eyebrow { animation-delay: .05s; }
+.hero .eyebrow { margin-top: 16px; margin-bottom: 44px; display: inline-flex; animation: fadeUpIn .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: .05s; }
 .hero-copy > h1 { animation-delay: .15s; }
 .hero-copy > .lead { animation-delay: .28s; }
 .hero-copy > .cta-row { animation-delay: .40s; }
@@ -116,10 +117,10 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 
 /* -- Mobile baked-position resets -- */
 @media (max-width: 980px) {
-  #heroLogoImg { transform: translate(0, 0) scale(0.8) !important; margin: 0 auto 16px; }
+  #heroLogoImg { transform: translate(0, 0) scale(0.75) !important; margin: 0 auto 16px; }
   .hero-media-frame { transform: translate(0, 0) scale(1) !important; }
 }
 @media (max-width: 640px) {
-  #heroLogoImg { transform: translate(0, 0) scale(0.7) !important; margin: 0 auto 16px; }
+  #heroLogoImg { transform: translate(0, 0) scale(0.65) !important; margin: 0 auto 16px; }
 }
 
