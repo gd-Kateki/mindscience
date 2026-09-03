@@ -42,7 +42,7 @@ header.scrolled .nav-cta { padding: 11px 22px; }
 .hero-media-frame { width: 100%; aspect-ratio: 3/4; max-height: 560px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--panel); border: 1.5px solid var(--line); position: relative; }
 .hero-media-frame iframe { width: 100%; height: 145%; border: none; display: block; position: absolute; top: 0; left: 0; }
 .hero h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin: 0; }
-.hero h1 .accent { font-family: var(--font-brand-futura); font-weight: 500; letter-spacing: -0.01em; background: var(--ribbon-gradient); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: flow 8s linear infinite; }
+.hero h1 .accent { text-transform: uppercase; font-family: var(--font-brand-futura); font-weight: 500; letter-spacing: -0.01em; background: var(--ribbon-gradient); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: flow 8s linear infinite; }
 .hero h1 .hero-subline { font-size: 0.78em; line-height: 1.1; display: block; }
 .hero p.lead { font-size: 17.5px; color: var(--ink-soft); max-width: 480px; margin-bottom: 14px; }
 .hero p.lead:last-of-type { margin-bottom: 34px; }
