@@ -1,6 +1,6 @@
 window.DATA_site = {
   "clinic": {
-    "name": "MindScience Clinic",
+    "name": "MIND SCIENCE CLINIC",
     "tagline": "A calmer mind starts here",
     "description": "A warm, science-backed space for your mental well-being.",
     "location": "Pune, Maharashtra",
@@ -15,12 +15,14 @@ window.DATA_site = {
   },
   "topbar": {
     "message": "Free community seminar on <strong>managing anxiety</strong> — Saturday 14 Sep",
-    "cta": { "label": "Reserve a seat", "href": "#book" }
+    "cta": {
+      "label": "Reserve a seat",
+      "href": "#book"
+    }
   },
   "social": {
     "instagram": "#",
     "facebook": "#",
     "linkedin": "#"
   }
-}
-;
+};

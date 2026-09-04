@@ -1,4 +1,4 @@
-﻿window.DATA_blog = [
+window.DATA_blog = [
   {
     "tag": "Therapy",
     "title": "When should you consider talking to a mental health professional?",

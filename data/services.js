@@ -31,5 +31,4 @@ window.DATA_services = [
     "iconColor": "var(--purple-deep)",
     "iconSvg": "<path d='M12 3l3 6 6 .9-4.5 4.2 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8l3-6z' stroke='currentColor' stroke-width='1.6' stroke-linejoin='round'/>"
   }
-]
-;
+];

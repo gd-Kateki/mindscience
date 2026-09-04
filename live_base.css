@@ -11,14 +11,14 @@ section { position: relative; scroll-margin-top: 96px; }
 .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 :focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 6px; }
 .eyebrow {
-  font-family: var(--font-brand-futura, 'Futura PT Book', 'Futura PT', 'Futura', sans-serif);
+  font-family: var(--font-brand-futura);
   font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--magenta-deep);
-  font-weight: 700; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 9px;
+  font-weight: 700; margin-bottom: 28px; display: inline-flex; align-items: center; gap: 9px;
   background: var(--magenta-light); padding: 8px 16px 8px 12px; border-radius: var(--radius-pill);
 }
 .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand-gradient); display: inline-block; flex: none; }
 .ribbon-rule { width: 86px; height: 6px; border-radius: 99px; background: var(--ribbon-gradient); background-size: 220% 100%; margin: 0 0 22px; animation: flow 7s linear infinite; }
-.section-head { max-width: 620px; margin-bottom: 48px; }
+.section-head { max-width: 620px; margin-bottom: 36px; }
 .section-head h2 { font-size: clamp(30px, 3.4vw, 44px); margin-bottom: 14px; }
 .section-head p { color: var(--ink-soft); font-size: 16.5px; }
 .section-head.center { margin-left: auto; margin-right: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }

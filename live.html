@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -24,6 +24,20 @@
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/sections.css">
+<script>
+(function(){
+  try {
+    var pos = JSON.parse(localStorage.getItem('msc_image_positions') || '{}');
+    var css = '';
+    for (var sel in pos) {
+      var p = pos[sel];
+      var scale = p.scale !== undefined ? p.scale : 1;
+      css += sel + ' { animation: none; opacity: 1; transform-origin: top left; transform: translate(' + (p.left||0) + 'px, ' + (p.top||0) + 'px) scale(' + scale + '); }\n';
+    }
+    if (css) document.write('<style>' + css + '</style>');
+  } catch(e){}
+})();
+</script>
 </head>
 <body>
 
@@ -98,7 +112,7 @@
       </div>
       <blockquote class="hero-quote">
         <p>Mind Science Clinic is for everyone who wants to be Healthy, Happy and Competent. Our well-being is governed by the health of our Mind and hence, it is of prime importance to care for it. The undesirable adverse situations, events, people, and relationships in our personal &amp; professional life and our interpretation of the same scar our mind, creating discomfort and further deteriorate its health if dwelled upon. When not attended to in time, it can lead to mental disorders, disrupting all facets of our well-being viz. physical health, physiological health, metabolic health, emotional health, familial health, social health, financial health, relationships, our overall competence. Being conscious about building and maintaining our mental health can not only prevent or cure discomfort and disorders but also can empower us to lead a life enriched with competence, health, and happiness for ourselves and our beloved.</p>
-        <cite>— Dr. Sunil Dharane © Founder &amp; Group Director, Mind Science Clinic, Mental Health Organisation (MHO), Maverick India</cite>
+        <cite>- Dr. Sunil Dharane © Founder &amp; Group Director, Mind Science Clinic, Mental Health Organisation (MHO), Maverick India</cite>
       </blockquote>
       <p class="lead">We provide compassionate, competent, safe, and confidential support to help you with your well-being.</p>
       <p class="lead">We work with children, couples, families, groups, and corporates by providing our best services in Preventive &amp; Remedial Mental Health Care.</p>
@@ -195,42 +209,23 @@
       <div class="team-grid reveal-group">
         <div class="team-card reveal">
           <div class="avatar-photo" style="background:linear-gradient(135deg,var(--purple),var(--magenta));">
-            <div class="avatar-fallback">NN</div>
+            <img id="team-img-tc" src="assets/Rajlaxmi Bhingare.jpeg" alt="Tanishka Chavan">
           </div>
-          <h3>Name</h3>
-          <span class="role">Qualification</span>
-          <p>Bio goes here — a short paragraph about this team member's background, approach, and how they work with clients.</p>
-          <div class="team-specialties">
-            <span class="team-tag">Specialty</span>
-            <span class="team-tag">Specialty</span>
-          </div>
+          <h3>Tanishka Chavan</h3>
+          <span class="role">Counselling Psychologist</span>
+          <p class="bio-text">Ms. Tanishka Chavan has completed her MSc in Clinical Psychology and is trained in psychological assessment, screening, and therapeutic approaches including Cognitive Behaviour Therapy (CBT), Rational Emotive Behaviour Therapy (REBT) and various other therapeutic techniques. Her clinical work focuses on understanding individual concerns through a comprehensive psychological perspective, considering their thoughts, emotions, behaviours, relationships, and life context. She works with emotional, behavioural, interpersonal, and adjustment-related concerns, using clinical interviewing, psychological assessment, and therapeutic interventions to understand and address individual needs. Her approach is holistic and eclectic, integrating techniques from different therapeutic modalities based on the individual's concerns, strengths, and therapeutic goals. She places emphasis on creating a safe, confidential, and non-judgmental therapeutic environment that supports self-understanding, emotional well-being, and meaningful psychological change. She is also trained in personality, career, and other counselling-related assessments, with a focus on responsible interpretation and client-centred feedback.</p>
+            <button class="read-more-btn" onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.innerText === 'Read more' ? 'Read less' : 'Read more';">Read more</button>
         </div>
         <div class="team-card reveal">
           <div class="avatar-photo" style="background:linear-gradient(135deg,var(--teal),var(--orange));">
-            <div class="avatar-fallback">NN</div>
+            <img id="team-img-rb" src="assets/Tanishka Chavan.jpeg" alt="Rajlaxmi Bhingare">
           </div>
-          <h3>Name</h3>
-          <span class="role">Qualification</span>
-          <p>Bio goes here — a short paragraph about this team member's background, approach, and how they work with clients.</p>
-          <div class="team-specialties">
-            <span class="team-tag">Specialty</span>
-            <span class="team-tag">Specialty</span>
-          </div>
-        </div>
-        <div class="team-card reveal">
-          <div class="avatar-photo" style="background:linear-gradient(135deg,var(--orange),var(--purple));">
-            <div class="avatar-fallback">NN</div>
-          </div>
-          <h3>Name</h3>
-          <span class="role">Qualification</span>
-          <p>Bio goes here — a short paragraph about this team member's background, approach, and how they work with clients.</p>
-          <div class="team-specialties">
-            <span class="team-tag">Specialty</span>
-            <span class="team-tag">Specialty</span>
-          </div>
+          <h3>Rajlaxmi Bhingare</h3>
+          <span class="role">Counselling Psychologist</span>
+          <p class="bio-text">Ms. Rajlaxmi is a Postgraduate in Clinical Psychology with a strong foundation in clinical assessment, psychological formulation, and evidence-based interventions. Her approach incorporates various appropriate therapies suitable for individual mental status, focusing on cognitive distortions, maladaptive beliefs, emotional regulation, and behavioural patterns. She has experience with clinical interviewing, case conceptualisation, psychological assessments, and psychometric evaluation, along with interventions such as psychoeducation, grounding techniques, and coping-skills training. Her approach is warm and collaborative, with an emphasis on helping individuals develop self-awareness, effective coping mechanisms, and improved psychological well-being.</p>
+            <button class="read-more-btn" onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.innerText === 'Read more' ? 'Read less' : 'Read more';">Read more</button>
         </div>
       </div>
-      <p class="team-note">Names, qualifications, bios, and specialties above are placeholders — swap in real photos, credentials, and copy for each team member. See the <code>.avatar-photo</code> background for where to place a real headshot (e.g. <code>&lt;img src="photo.jpg"&gt;</code> inside the frame).</p>
     </div>
   </div>
 </section>
@@ -248,38 +243,51 @@
       <p>Every session is shaped around you.</p>
     </div>
     <div class="services-grid reveal-group">
+
       <div class="service-card reveal">
-        <div class="service-icon" style="background:var(--magenta-light);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#B80F6E" stroke-width="1.8"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke="#B80F6E" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div class="service-img-wrap">
+          <img src="assets/Individual Therapy.jpeg" alt="Individual Therapy" loading="lazy">
         </div>
-        <h3>Individual Therapy</h3>
-        <p>One-on-one sessions to navigate challenges and build healthier coping strategies.</p>
-        <span class="service-tag">In-Person or online</span>
+        <div class="service-body">
+          <h3>Individual Therapy</h3>
+          <p>One-on-one sessions to navigate challenges and build healthier coping strategies.</p>
+          <span class="service-tag">In-Person or online</span>
+        </div>
       </div>
+
       <div class="service-card reveal">
-        <div class="service-icon" style="background:var(--teal-light);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="3.4" stroke="#048A93" stroke-width="1.8"/><circle cx="17" cy="10" r="2.6" stroke="#048A93" stroke-width="1.8"/><path d="M3 20c0-3.5 2.8-5.8 6-5.8s6 2.3 6 5.8M15.5 20c.2-2.6 1.8-4.4 4.2-4.7" stroke="#048A93" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div class="service-img-wrap">
+          <img src="assets/Couples & Family.jpeg" alt="Couples & Family" loading="lazy">
         </div>
-        <h3>Couples &amp; Family</h3>
-        <p>Strengthening relationships through communication, understanding, and connection.</p>
-        <span class="service-tag">In-Person or online</span>
+        <div class="service-body">
+          <h3>Couples &amp; Family</h3>
+          <p>Strengthening relationships through communication, understanding, and connection.</p>
+          <span class="service-tag">In-Person or online</span>
+        </div>
       </div>
+
       <div class="service-card reveal">
-        <div class="service-icon" style="background:var(--lime-light);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 4 0 6.5 4 4.5 8-2.5 4.15-9.5 8.5-9.5 8.5z" stroke="#5FA425" stroke-width="1.8"/></svg>
+        <div class="service-img-wrap">
+          <img src="assets/Child & Adolescent.jpeg" alt="Child & Adolescent" loading="lazy">
         </div>
-        <h3>Child &amp; Adolescent</h3>
-        <p>Support for emotional, behavioural, social, and developmental concerns.</p>
-        <span class="service-tag">In-Person or online</span>
+        <div class="service-body">
+          <h3>Child &amp; Adolescent</h3>
+          <p>Support for emotional, behavioural, social, and developmental concerns.</p>
+          <span class="service-tag">In-Person or online</span>
+        </div>
       </div>
+
       <div class="service-card reveal">
-        <div class="service-icon" style="background:var(--purple-light);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3l3 6 6 .9-4.5 4.2 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8l3-6z" stroke="#5F35BD" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div class="service-img-wrap">
+          <img src="assets/Group.jpeg" alt="Group Therapy" loading="lazy">
         </div>
-        <h3>Group</h3>
-        <p>A space to connect, share, learn, and grow together.</p>
-        <span class="service-tag">In-Person or online</span>
+        <div class="service-body">
+          <h3>Group</h3>
+          <p>A space to connect, share, learn, and grow together.</p>
+          <span class="service-tag">In-Person or online</span>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -545,8 +553,8 @@
   <div class="wrap book-grid">
     <div class="book-info reveal">
       <span class="eyebrow"><span class="dot"></span>Book a session</span>
-      <h2>Let's find you a time to talk</h2>
-      <p>Fill in a few details and our care team will reach out within 24 hours to confirm your appointment — in person or online.</p>
+      <h2>Take the first step</h2>
+      <p>Fill in a few details and our team will reach out within 24 hours to confirm your appointment.</p>
       <div class="info-list">
         <div class="info-item">
           <div class="ic" style="background:var(--magenta-light);">
@@ -558,13 +566,13 @@
           <div class="ic" style="background:var(--teal-light);">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 2" stroke="#048A93" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#048A93" stroke-width="1.7"/></svg>
           </div>
-          <div><h4>45–50 minute sessions</h4><p>In-clinic or video call, whichever feels right.</p></div>
+          <div><h4>45–60 minute sessions</h4><p>In-clinic or video call, whichever feels right.</p></div>
         </div>
         <div class="info-item">
           <div class="ic" style="background:var(--orange-light);">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="#E1751A" stroke-width="1.7"/></svg>
           </div>
-          <div><h4>Private &amp; secure</h4><p>Your information is only ever seen by your care team.</p></div>
+          <div><h4>Private &amp; Confidential</h4><p>Your personal information and therapeutic conversations are kept confidential and accessible only to authorised professionals involved in your care.</p></div>
         </div>
       </div>
     </div>
@@ -596,7 +604,9 @@
             <select id="sessionType" name="sessionType" required>
               <option value="" disabled selected>Choose one</option>
               <option>Individual Therapy</option>
-              <option>Couples &amp; Family Therapy</option>
+              <option>Couples Therapy</option>
+              <option>Family Therapy</option>
+              <option>Child &amp; Adolescent</option>
               <option>Other Services</option>
             </select>
           </div>
@@ -629,7 +639,7 @@
         </div>
         <div class="form-row">
           <div class="field full">
-            <label for="message">What would you like to talk about? (optional)</label>
+            <label for="message">What areas would you like support with (optional)</label>
             <textarea id="message" name="message" placeholder="Share as much or as little as you'd like..."></textarea>
           </div>
         </div>
@@ -649,7 +659,7 @@
 </section>
 
 <!-- ================= MAP & DIRECTIONS ================= -->
-<section id="visit" class="map-section">
+<section id="visit" class="map-section" style="margin-top: 60px;">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot"></span>Visit the clinic</span>
@@ -658,26 +668,25 @@
     </div>
     <div class="map-grid reveal-group">
       <div class="map-card reveal">
-        <h3 style="font-size:19px; margin-bottom:6px;">MindScience Clinic</h3>
-        <p style="color:var(--ink-soft); font-size:14.5px;">Placeholder address — replace with the clinic's exact street address, floor/unit number, and any landmark that helps people find it.</p>
+        <h3 style="font-size:19px; margin-bottom:16px;">MindScience Clinic</h3>
         <div class="info-list">
           <div class="info-item">
             <div class="ic" style="background:var(--magenta-light);">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="#B80F6E" stroke-width="1.7"/></svg>
             </div>
-            <div><h4>Address</h4><p>Pune, Maharashtra — full address here</p></div>
+            <div><h4>Address</h4><p>1, Jayashree Apartment, 769/5 A, PYC Colony, Deccan, Pune, Maharashtra 411004.</p></div>
           </div>
           <div class="info-item">
             <div class="ic" style="background:var(--teal-light);">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 2" stroke="#048A93" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#048A93" stroke-width="1.7"/></svg>
             </div>
-            <div><h4>Clinic hours</h4><p>Mon–Sat, 10:00 AM – 7:00 PM</p></div>
+            <div><h4>Clinic hours</h4><p>10am to 6pm</p></div>
           </div>
           <div class="info-item">
             <div class="ic" style="background:var(--orange-light);">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="3" stroke="#E1751A" stroke-width="1.7"/><path d="M8 2v4M16 2v4M3 10h18" stroke="#E1751A" stroke-width="1.7" stroke-linecap="round"/></svg>
             </div>
-            <div><h4>Parking</h4><p>Note any on-site or nearby parking here</p></div>
+            <div><h4>Parking</h4><p>Only roadside parking</p></div>
           </div>
         </div>
         <a href="https://www.google.com/maps/dir/?api=1&destination=18.51732767951109,73.83725928844026" target="_blank" rel="noopener" class="btn btn-secondary btn-sm directions-btn">
@@ -720,9 +729,9 @@
           <b>MIND SCIENCE CLINIC</b>
         </div>
         <p>A warm, science-backed space for your mental well-being.</p>
-        
+
         <div style="margin-top: 16px;">
-          <p style="font-size: 12px; color: #8B82A3; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">Associated With</p>
+          <p style="font-size: 12px; color: #8B82A3; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">Division of</p>
           <img src="assets/mho-logo.png" alt="Mental Health Organisation" class="footer-mho-logo">
         </div>
       </div>
@@ -773,5 +782,3 @@
 
 </body>
 </html>
-
-
