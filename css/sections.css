@@ -1,4 +1,4 @@
-.about-section, .services-section, .testimonials-section, .faq-section, .map-section, .blog-section, .book-section { content-visibility: auto; contain-intrinsic-size: 1px 900px; }
+/* content-visibility removed to ensure accurate scroll measurement and zero layout shift */
 
 .about-section { padding: 72px 0 64px; background: var(--bg-cool); }
 .segmented { display: inline-flex; background: var(--panel); border-radius: var(--radius-pill); padding: 6px; box-shadow: var(--shadow-sm); margin-bottom: 36px; gap: 2px; position: relative; border: 1.5px solid var(--line); }

@@ -56,35 +56,68 @@ function initUI() {
   });
 
   const navLinkEls = document.querySelectorAll('.nav-link[data-nav]');
-  const sections = ['home', 'about', 'services', 'announcements', 'faq', 'blog', 'book'].map(id => document.getElementById(id));
+  const scrollSectionIds = ['home', 'about', 'services', 'announcements', 'faq', 'blog'];
   const siteHeader = document.getElementById('siteHeader');
   const progressBar = document.getElementById('progressBar');
   const toTop = document.getElementById('toTop');
-  let sectionOffsets = [];
-  function measureSections() { sectionOffsets = sections.filter(Boolean).map(sec => ({ id: sec.id, top: sec.offsetTop })); }
-  measureSections();
+
+  function getActiveSection() {
+    const scrollPos = window.scrollY + 160;
+    let current = 'home';
+    for (let i = 0; i < scrollSectionIds.length; i++) {
+      const el = document.getElementById(scrollSectionIds[i]);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        if (scrollPos >= top) {
+          current = scrollSectionIds[i];
+        }
+      }
+    }
+    return current;
+  }
 
   let ticking = false;
   function onScroll() {
     const y = window.scrollY;
-    let current = 'home';
-    sectionOffsets.forEach(sec => { if (y >= sec.top - 120) current = sec.id; });
-    navLinkEls.forEach(a => a.classList.toggle('active', a.dataset.nav === current));
+    const current = getActiveSection();
+    navLinkEls.forEach(a => {
+      a.classList.toggle('active', a.dataset.nav === current);
+    });
     if (siteHeader) siteHeader.classList.toggle('scrolled', y > 20);
     if (toTop) toTop.classList.toggle('show', y > 500);
-    if (progressBar) { const docH = document.documentElement.scrollHeight - window.innerHeight; progressBar.style.transform = `scaleX(${docH > 0 ? Math.min(y / docH, 1) : 0})`; }
+    if (progressBar) {
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.transform = `scaleX(${docH > 0 ? Math.min(y / docH, 1) : 0})`;
+    }
     ticking = false;
   }
-  window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(onScroll); ticking = true; } }, { passive: true });
-  window.addEventListener('resize', measureSections, { passive: true });
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', onScroll, { passive: true });
   onScroll();
+
   if (toTop) toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     revealEls.forEach(el => observer.observe(el));
-  } else { revealEls.forEach(el => el.classList.add('in')); }
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
 
   function initFAQ() {
     document.querySelectorAll('.faq-item').forEach(item => {
@@ -93,7 +126,13 @@ function initUI() {
       if (!btn || !answer) return;
       btn.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item.open').forEach(other => { if (other !== item) { other.classList.remove('open'); other.querySelector('.faq-q').setAttribute('aria-expanded', 'false'); other.querySelector('.faq-a').style.maxHeight = null; } });
+        document.querySelectorAll('.faq-item.open').forEach(other => {
+          if (other !== item) {
+            other.classList.remove('open');
+            other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+            other.querySelector('.faq-a').style.maxHeight = null;
+          }
+        });
         item.classList.toggle('open', !isOpen);
         btn.setAttribute('aria-expanded', String(!isOpen));
         answer.style.maxHeight = !isOpen ? answer.scrollHeight + 'px' : null;
@@ -101,16 +140,18 @@ function initUI() {
     });
   }
   initFAQ();
+
   if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in'); } }); }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     document.querySelectorAll('.reveal:not(.in)').forEach(el => observer.observe(el));
   }
 }
+
 document.addEventListener('contentLoaded', initUI);
-
-function alignHeroMedia() {
-  return; // Disabled due to layout redesign
-}
-
-window.addEventListener('load', alignHeroMedia);
-window.addEventListener('resize', alignHeroMedia);
+document.addEventListener('DOMContentLoaded', initUI);
