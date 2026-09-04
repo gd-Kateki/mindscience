@@ -14,11 +14,8 @@ window.DATA_site = {
     "web3formsKey": "50d9c8fe-12bd-4489-9f75-4d685481fdcc"
   },
   "topbar": {
-    "message": "Free community seminar on <strong>managing anxiety</strong> — Saturday 14 Sep",
-    "cta": {
-      "label": "Reserve a seat",
-      "href": "#book"
-    }
+    "message": "Community Seminars & Mental Health Workshops — <strong>New Dates Coming Soon</strong>",
+    "cta": { "label": "Learn more", "href": "#announcements" }
   },
   "social": {
     "instagram": "#",

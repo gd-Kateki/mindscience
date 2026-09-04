@@ -54,6 +54,7 @@ function renderServices(services) {
 }
 
 function renderEvents(events) {
+  if (!events || events.length === 0) return;
   const spotlight = events.find(e => e.isSpotlight) || events[0];
   renderSpotlight(spotlight);
   const list = document.getElementById('announceList'); if (!list) return;

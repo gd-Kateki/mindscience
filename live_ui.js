@@ -56,7 +56,7 @@ function initUI() {
   });
 
   const navLinkEls = document.querySelectorAll('.nav-link[data-nav]');
-  const sections = ['home', 'about', 'services', 'book'].map(id => document.getElementById(id));
+  const sections = ['home', 'about', 'services', 'announcements', 'faq', 'blog', 'book'].map(id => document.getElementById(id));
   const siteHeader = document.getElementById('siteHeader');
   const progressBar = document.getElementById('progressBar');
   const toTop = document.getElementById('toTop');
