@@ -114,7 +114,8 @@
 .faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 26px; background: none; border: none; cursor: pointer; text-align: left; font-family: 'Baloo 2', sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
 .faq-q .plus { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--magenta-light); color: var(--magenta-deep); display: flex; align-items: center; justify-content: center; transition: transform .3s ease, background .3s ease, color .3s ease; }
 .faq-item.open .plus { transform: rotate(135deg); background: var(--brand-gradient); color: #fff; }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease, opacity .3s ease; opacity: 0; }
+.faq-item.open .faq-a { max-height: 800px; opacity: 1; }
 .faq-a p { padding: 0 26px 22px; font-size: 14.5px; color: var(--ink-soft); max-width: 680px; }
 
 .map-section { padding: 0 0 72px; }
