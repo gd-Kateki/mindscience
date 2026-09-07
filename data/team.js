@@ -1,44 +1,22 @@
 window.DATA_team = [
   {
-    "initials": "SD",
-    "name": "Dr. Sunil Dharane",
-    "role": "Founder & Group Director",
-    "bio": "Founder & Group Director of Mind Science Clinic, Mental Health Organisation (MHO), Maverick India, leading evidence-informed psychological and psychiatric care.",
-    "specialties": [
-      "Psychiatric Care",
-      "Clinical Leadership",
-      "Mental Health"
-    ],
-    "photoUrl": "",
+    "initials": "TC",
+    "name": "Tanishka Chavan",
+    "role": "Counselling Psychologist",
+    "bio": "Ms. Tanishka Chavan has completed her MSc in Clinical Psychology and is trained in psychological assessment, screening, and therapeutic approaches including CBT, REBT, and holistic interventions for emotional and interpersonal wellbeing.",
+    "specialties": ["Child & Adolescent", "Couples Therapy", "Assessments", "CBT & REBT"],
+    "photoUrl": "assets/Tanishka Chavan.jpeg",
     "gradientFrom": "var(--purple)",
     "gradientTo": "var(--magenta)"
   },
   {
     "initials": "RB",
-    "name": "Ms. Rajlaxmi Bhingare",
-    "role": "Psychologist",
-    "bio": "Specializing in cognitive-behavioural interventions, emotional wellbeing, and providing empathetic, structured guidance for individuals and couples.",
-    "specialties": [
-      "Individual Therapy",
-      "CBT & REBT",
-      "Anxiety & Mood"
-    ],
+    "name": "Rajlaxmi Bhingare",
+    "role": "Counselling Psychologist",
+    "bio": "Ms. Rajlaxmi is a Postgraduate in Clinical Psychology with expertise in psychological formulation, cognitive distortions, emotional regulation, and evidence-based coping mechanisms.",
+    "specialties": ["Individual Therapy", "CBT & REBT", "Anxiety & Mood", "Emotional Regulation"],
     "photoUrl": "assets/Rajlaxmi Bhingare.jpeg",
     "gradientFrom": "var(--teal)",
     "gradientTo": "var(--orange)"
-  },
-  {
-    "initials": "TC",
-    "name": "Ms. Tanishka Chavan",
-    "role": "Clinical Psychologist (MSc)",
-    "bio": "Completed MSc in Clinical Psychology, trained in psychological assessment, screening, individual therapy, child & adolescent counseling, and couples therapy.",
-    "specialties": [
-      "Child & Adolescent",
-      "Couples Therapy",
-      "Assessments"
-    ],
-    "photoUrl": "assets/Tanishka Chavan.jpeg",
-    "gradientFrom": "var(--orange)",
-    "gradientTo": "var(--purple)"
   }
 ];
