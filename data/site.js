@@ -18,8 +18,6 @@ window.DATA_site = {
     "cta": { "label": "Learn more", "href": "#announcements" }
   },
   "social": {
-    "instagram": "#",
-    "facebook": "#",
-    "linkedin": "#"
+    "instagram": "https://www.instagram.com/mindscience_mentalhealth/"
   }
 };
