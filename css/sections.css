@@ -27,6 +27,8 @@
 .role { font-size: 13px; font-weight: 700; color: var(--magenta-deep); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; display: block; }
 .team-card p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
 .bio-text { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; transition: all 0.3s ease; }
+.bio-text p { margin: 0 0 14px 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; }
+.bio-text p:last-child { margin-bottom: 0; }
 .bio-text.expanded { display: block; -webkit-line-clamp: unset; overflow: visible; }
 .read-more-btn { background: none; border: none; color: var(--teal); font-weight: 700; padding: 0; margin-top: 10px; cursor: pointer; font-size: 14px; text-decoration: underline; text-underline-offset: 2px; }
 .read-more-btn:hover { color: var(--teal-deep); }
