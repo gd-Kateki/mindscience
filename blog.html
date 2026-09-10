@@ -326,59 +326,6 @@
   .art{ position:relative; background-size: cover; }
   .art svg{ width:100%; height:100%; display:block; }
 
-  /* ---------- Newsletter band ---------- */
-  .newsletter{
-    background: var(--ink);
-    color: #fff;
-    border-radius: 28px;
-    padding: 52px 48px;
-    margin-bottom: 80px;
-    display:grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .newsletter h3{
-    font-family: var(--serif); font-weight:700;
-    font-size: 1.7rem; margin: 0 0 12px; line-height:1.2;
-  }
-  .newsletter p{ color: rgba(255,255,255,0.72); margin:0; max-width: 42ch; }
-  .sub-form{ display:flex; gap:10px; }
-  .sub-form input{
-    flex:1;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.22);
-    color: #fff;
-    padding: 13px 18px;
-    border-radius: 100px;
-    font-family: var(--sans);
-    font-size: 0.92rem;
-  }
-  .sub-form input::placeholder{ color: rgba(255,255,255,0.5); }
-  .sub-form button{
-    background: var(--pink);
-    color:#fff; border:none;
-    padding: 13px 24px;
-    border-radius:100px;
-    font-family: var(--sans); font-weight:600; font-size:0.92rem;
-    cursor:pointer;
-    white-space:nowrap;
-    transition: transform .15s ease;
-  }
-  .sub-form button:hover{ transform: translateY(-1px); }
-  .sub-note{ font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top:12px; }
-  .sub-confirm{
-    display:none;
-    font-size: 0.92rem; color: var(--pink-tint);
-    margin-top: 4px;
-  }
-  @media (max-width: 780px){
-    .newsletter{ grid-template-columns:1fr; padding: 36px 26px; }
-    .sub-form{ flex-direction:column; }
-  }
-
   /* ---------- Footer ---------- */
   footer{
     border-top: 1px solid var(--line);
@@ -514,23 +461,6 @@
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section class="newsletter">
-    <div>
-      <h3>Monthly notes on everyday mental well-being</h3>
-      <p>One short email a month — practical, evidence-informed, no jargon. Unsubscribe any time.</p>
-    </div>
-    <div>
-      <form class="sub-form" id="sub-form">
-        <label for="sub-email" class="visually-hidden" style="position:absolute;left:-9999px;">Email address</label>
-        <input id="sub-email" type="email" placeholder="Your email address" required>
-        <button type="submit">Subscribe</button>
-      </form>
-      <p class="sub-note">We'll never share your email. Read our privacy approach on the clinic site.</p>
-      <p class="sub-confirm" id="sub-confirm">You're on the list — thank you for reading.</p>
-    </div>
-  </section>
-
 </main>
 
 <footer>
@@ -636,17 +566,6 @@
       searchInput.value = '';
       performSearch();
       searchInput.focus();
-    });
-  }
-
-  // Newsletter demo confirmation
-  const form = document.getElementById('sub-form');
-  const confirm = document.getElementById('sub-confirm');
-  if (form && confirm) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      form.style.display = 'none';
-      confirm.style.display = 'block';
     });
   }
 </script>
