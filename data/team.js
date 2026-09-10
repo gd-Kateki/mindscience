@@ -1,5 +1,15 @@
 window.DATA_team = [
   {
+    "initials": "SD",
+    "name": "Dr. Sunil Dharane",
+    "role": "Psychoneuroimmunologist",
+    "bio": "Dr. Sunil Dharane is a psychoneuroimmunologist through the faculty of Physiological Psychology and Founder & Group Director of Mind Science Clinic, Mental Health Organisation (MHO), and Maverick India group.",
+    "specialties": ["Psychoneuroimmunology", "Physiological Psychology", "Mental Well-being", "Executive Coaching"],
+    "photoUrl": "",
+    "gradientFrom": "var(--magenta)",
+    "gradientTo": "var(--orange)"
+  },
+  {
     "initials": "TC",
     "name": "Tanishka Chavan",
     "role": "Counselling Psychologist",
