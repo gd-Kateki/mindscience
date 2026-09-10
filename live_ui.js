@@ -200,6 +200,59 @@ function initUI() {
       }
     });
   }
+
+  // --- Hero Video Modal Lightbox ---
+  const heroVideoCard = document.getElementById('heroVideoCard') || document.querySelector('.hero-video-frame');
+  const videoModal = document.getElementById('videoModal');
+  const videoModalBackdrop = document.getElementById('videoModalBackdrop');
+  const videoModalClose = document.getElementById('videoModalClose');
+  const modalVideo = document.getElementById('heroModalVideo');
+
+  function openVideoModal() {
+    if (!videoModal) return;
+    videoModal.classList.add('open');
+    videoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (modalVideo) {
+      modalVideo.currentTime = 0;
+      const playPromise = modalVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    }
+    if (videoModalClose) videoModalClose.focus();
+  }
+
+  function closeVideoModal() {
+    if (!videoModal) return;
+    videoModal.classList.remove('open');
+    videoModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (modalVideo) {
+      modalVideo.pause();
+    }
+    if (heroVideoCard) heroVideoCard.focus();
+  }
+
+  if (heroVideoCard && videoModal) {
+    heroVideoCard.addEventListener('click', openVideoModal);
+    heroVideoCard.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openVideoModal();
+      }
+    });
+  }
+
+  if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
+  if (videoModalBackdrop) videoModalBackdrop.addEventListener('click', closeVideoModal);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && videoModal && videoModal.classList.contains('open')) {
+      closeVideoModal();
+    }
+  });
+
 }
 
 // Attach listeners cleanly

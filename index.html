@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/sections.css?v=1789040859">
 <script>
 (function(){
   try {
@@ -126,10 +126,17 @@
     </div>
 
     <div class="hero-media">
-      <div class="hero-video-frame">
-        <div class="video-placeholder">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-          <span>Introductory Video</span>
+      <div class="hero-video-frame" id="heroVideoCard" role="button" tabindex="0" aria-label="Play World Suicide Prevention Day Video">
+        <div class="hero-video-thumb">
+          <video preload="metadata" muted playsinline>
+            <source src="assets/SuicidePreventionDay.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero-video-overlay">
+          <div class="video-play-btn" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          </div>
+          <span class="hero-video-title">World Suicide Prevention Day</span>
         </div>
       </div>
       <div class="hero-media-frame">
@@ -231,6 +238,19 @@
           <div class="bio-text">
             <p>Ms. Rajlaxmi is a Postgraduate in Clinical Psychology with a strong foundation in clinical assessment, psychological formulation, and evidence-based interventions. Her approach incorporates various appropriate therapies suitable for individual mental status, focusing on cognitive distortions, maladaptive beliefs, emotional regulation, and behavioural patterns.</p>
             <p>She has experience with clinical interviewing, case conceptualisation, psychological assessments, and psychometric evaluation, along with interventions such as psychoeducation, grounding techniques, and coping-skills training. Her approach is warm and collaborative, with an emphasis on helping individuals develop self-awareness, effective coping mechanisms, and improved psychological well-being.</p>
+          </div>
+          <button class="read-more-btn" onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.previousElementSibling.classList.contains('expanded') ? 'Read less' : 'Read more';">Read more</button>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar-photo" style="background:linear-gradient(135deg,var(--orange),var(--purple));">
+            <div class="avatar-fallback">AN</div>
+          </div>
+          <h3>Aditya Nair</h3>
+          <span class="role">UI/UX Designer | Graphic Designer</span>
+          <div class="bio-text">
+            <p>Aditya is a curious and creative individual who enjoys exploring the intersection of psychology, design, technology, and storytelling. He is someone who likes to understand not just how things work, but why people think, feel, and interact with them the way they do.</p>
+            <p>With a strong interest in UX psychology and creative problem-solving, Aditya is constantly learning, experimenting, and turning ideas into meaningful experiences. He believes that good design is more than just making something look appealing—it is about understanding people and creating something that feels intuitive, purposeful, and human.</p>
+            <p>Beyond his work and learning, Aditya enjoys exploring new ideas, developing creative concepts, and challenging himself to see ordinary things from different perspectives. He is driven by curiosity, creativity, and the desire to keep growing.</p>
           </div>
           <button class="read-more-btn" onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.previousElementSibling.classList.contains('expanded') ? 'Read less' : 'Read more';">Read more</button>
         </div>
@@ -717,18 +737,34 @@
   </div>
 </footer>
 
+<!-- Video Modal Lightbox -->
+<div id="videoModal" class="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="World Suicide Prevention Day Video">
+  <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+  <div class="video-modal-dialog">
+    <button class="video-modal-close" id="videoModalClose" aria-label="Close video">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="video-modal-player-wrap">
+      <video id="heroModalVideo" controls playsinline preload="metadata">
+        <source src="assets/SuicidePreventionDay.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
 <button class="to-top" id="toTop" aria-label="Back to top">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
 <script src="data/site.js"></script>
-<script src="data/team.js"></script>
+<script src="data/team.js?v=1789040859"></script>
 <script src="data/services.js"></script>
 <script src="data/events.js"></script>
 <script src="data/testimonials.js"></script>
 <script src="data/blog.js"></script>
 <script src="js/content-loader.js?v=1788758943"></script>
-<script src="js/ui.js?v=1788758943"></script>
+<script src="js/ui.js?v=1789040551"></script>
 <script src="js/form.js"></script>
 <script src="js/image-editor.js"></script>
 

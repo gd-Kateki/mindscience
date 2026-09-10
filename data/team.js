@@ -18,5 +18,15 @@ window.DATA_team = [
     "photoUrl": "assets/Rajlaxmi Bhingare.jpeg?v=1789023401",
     "gradientFrom": "var(--teal)",
     "gradientTo": "var(--orange)"
+  },
+  {
+    "initials": "AN",
+    "name": "Aditya Nair",
+    "role": "UI/UX Designer | Graphic Designer",
+    "bio": "Aditya is a curious and creative individual who enjoys exploring the intersection of psychology, design, technology, and storytelling to create intuitive, human-centred digital experiences.",
+    "specialties": ["UI/UX Design", "Graphic Design", "UX Psychology", "Visual Storytelling"],
+    "photoUrl": "",
+    "gradientFrom": "var(--orange)",
+    "gradientTo": "var(--purple)"
   }
 ];
