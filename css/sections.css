@@ -32,6 +32,19 @@
 .bio-text.expanded { display: block; -webkit-line-clamp: unset; overflow: visible; }
 .read-more-btn { background: none; border: none; color: var(--teal); font-weight: 700; padding: 0; margin-top: 10px; cursor: pointer; font-size: 14px; text-decoration: underline; text-underline-offset: 2px; }
 .read-more-btn:hover { color: var(--teal-deep); }
+
+/* Associates under team profiles */
+.team-associates { margin-top: 32px; max-width: 960px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.assoc-card { background: var(--panel); border: 1.5px solid var(--line); border-radius: var(--radius-md); padding: 18px 24px; display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow-sm); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.assoc-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--teal); }
+.assoc-badge { width: 42px; height: 42px; border-radius: 12px; background: var(--teal-light); color: var(--teal-deep); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.assoc-info { display: flex; flex-direction: column; gap: 2px; }
+.assoc-name { font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 16.5px; color: var(--ink); line-height: 1.25; }
+.assoc-role { font-size: 13.5px; font-weight: 600; color: var(--magenta-deep); letter-spacing: 0.01em; }
+@media (max-width: 640px) {
+  .team-associates { grid-template-columns: 1fr; gap: 14px; margin-top: 20px; }
+}
+
 .team-note { margin-top: 28px; font-size: 13.5px; color: var(--ink-faint); font-style: italic; max-width: 820px; }
 
 .services-section { padding: 72px 0 64px; }

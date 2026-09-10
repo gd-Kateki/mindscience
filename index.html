@@ -235,6 +235,34 @@
           <button class="read-more-btn" onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.previousElementSibling.classList.contains('expanded') ? 'Read less' : 'Read more';">Read more</button>
         </div>
       </div>
+
+      <!-- Additional Associates -->
+      <div class="team-associates reveal">
+        <div class="assoc-card">
+          <div class="assoc-badge" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="assoc-info">
+            <span class="assoc-name">Mrs. Capt. Irene Gonsalves</span>
+            <span class="assoc-role">Consultant &amp; Counselor</span>
+          </div>
+        </div>
+        <div class="assoc-card">
+          <div class="assoc-badge" aria-hidden="true" style="background: var(--purple-light); color: var(--purple-deep);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="assoc-info">
+            <span class="assoc-name">Ms. Rubina Ali</span>
+            <span class="assoc-role">Clinical Psychologist</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -642,9 +670,10 @@
         </div>
         <p>A warm, science-backed space for your mental well-being.</p>
 
-        <div style="margin-top: 16px;">
-          <p style="font-size: 12px; color: #8B82A3; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">Division of</p>
-          <img src="assets/mho-logo.png" alt="Mental Health Organisation" class="footer-mho-logo">
+        <div class="footer-division">
+          <span class="footer-division-label">A Division of</span>
+          <img src="assets/mho-logo.png?v=1789000200" alt="Mental Health Organisation (MHO)" class="footer-mho-logo" width="300" height="139">
+          <p class="footer-mho-text">Mental Health Organisation (MHO) · Maverick India</p>
         </div>
         <div class="footer-social" style="margin-top: 18px;">
           <a href="https://www.instagram.com/mindscience_mentalhealth/" target="_blank" rel="noopener noreferrer" aria-label="Follow Mind Science Clinic on Instagram">
@@ -683,7 +712,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 MindScience Clinic. All rights reserved.</span>
-      <span>Made with care, for care.</span>
+      <span>Division of Mental Health Organisation (MHO), Maverick India</span>
     </div>
   </div>
 </footer>
