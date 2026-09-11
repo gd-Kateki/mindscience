@@ -27,9 +27,14 @@
 <script>
 (function(){
   try {
-    var pos = JSON.parse(localStorage.getItem('msc_image_positions') || '{}');
+    /* Remove any stale position for #val-img-1 — it is now CSS-controlled */
+    var stored = JSON.parse(localStorage.getItem('msc_image_positions') || '{}');
+    if (stored['#val-img-1']) { delete stored['#val-img-1']; localStorage.setItem('msc_image_positions', JSON.stringify(stored)); }
+    var pos = stored;
     var css = '';
     for (var sel in pos) {
+      /* Skip val-img-1 — its layout is handled by CSS, not localStorage */
+      if (sel === '#val-img-1') continue;
       var p = pos[sel];
       var scale = p.scale !== undefined ? p.scale : 1;
       css += sel + ' { animation: none; opacity: 1; transform-origin: top left; transform: translate(' + (p.left||0) + 'px, ' + (p.top||0) + 'px) scale(' + scale + '); }\n';
