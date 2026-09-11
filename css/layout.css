@@ -291,13 +291,15 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 .footer-brand > div:first-child { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
 .footer-mho-logo { display: block; margin: 0 auto; width: 300px !important; max-width: 100% !important; height: auto !important; background: transparent !important; padding: 0 !important; border-radius: 0 !important; opacity: 0.98; transition: opacity .2s ease, transform .2s ease; transform: none !important; filter: drop-shadow(0 4px 14px rgba(0,0,0,0.22)); }
 .map-embed { transform-origin: top left; transform: translate(0px, 0px) scale(1); animation: none; }
-#val-img-1 { transform: none !important; }
-#val-img-2 { transform: none !important; }
-#val-img-3 { transform: none !important; }
-#val-img-4 { transform: none !important; }
-#val-img-5 { transform: none !important; }
-#val-img-6 { transform: none !important; }
-#val-img-7 { transform: none !important; }
+#val-img-1 { transform: scale(1.32) !important; transform-origin: center center; }
+.value-card:hover #val-img-1 { transform: scale(1.40) rotate(-2deg) !important; }
+#val-img-2, #val-img-3, #val-img-4, #val-img-5, #val-img-6, #val-img-7 { transform: none !important; transform-origin: center center; }
+.value-card:hover #val-img-2,
+.value-card:hover #val-img-3,
+.value-card:hover #val-img-4,
+.value-card:hover #val-img-5,
+.value-card:hover #val-img-6,
+.value-card:hover #val-img-7 { transform: scale(1.08) rotate(-2deg) !important; }
 
 /* -- Mobile baked-position resets -- */
 @media (max-width: 980px) {
