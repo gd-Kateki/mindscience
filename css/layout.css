@@ -301,9 +301,28 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 
 /* -- Mobile baked-position resets -- */
 @media (max-width: 980px) {
-  #heroLogoImg { transform: translate(0, 0) scale(0.75) !important; margin: 0 auto 16px; }
-  .hero-media-frame { transform: translate(0, 0) scale(1) !important; }
+  #heroLogoImg {
+    height: 140px !important;
+    width: auto !important;
+    max-width: 260px !important;
+    transform: none !important;
+    margin: 0 auto 14px !important;
+  }
+  .hero-media-frame { transform: none !important; }
+  .hero-title-wrap { margin-left: 0 !important; }
 }
 @media (max-width: 640px) {
-  #heroLogoImg { transform: translate(0, 0) scale(0.65) !important; margin: 0 auto 16px; }
+  #heroLogoImg {
+    height: 110px !important;
+    width: auto !important;
+    max-width: 220px !important;
+    transform: none !important;
+    margin: 0 auto 10px !important;
+  }
+}
+@media (max-width: 480px) {
+  #heroLogoImg {
+    height: 95px !important;
+    max-width: 190px !important;
+  }
 }
