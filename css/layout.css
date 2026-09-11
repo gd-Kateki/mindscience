@@ -1,42 +1,6 @@
 header { position: sticky; top: 14px; z-index: 100; padding: 0 20px; }
-
-.nav-brand-mobile {
-  display: none;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Baloo 2', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--ink);
-  text-decoration: none;
-}
-.nav-brand-mobile img {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  object-fit: contain;
-}
-
 nav { max-width: 1200px; margin: 0 auto; padding: 8px 20px; display: flex; align-items: center; justify-content: center; background: rgba(255, 251, 242, 0.9); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1.5px solid var(--line); border-radius: var(--radius-lg); box-shadow: 0 16px 40px -22px rgba(36, 27, 53, 0.30); transition: padding .3s ease, box-shadow .3s ease, background .3s ease; }
-header.scrolled 
-.nav-brand-mobile {
-  display: none;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Baloo 2', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--ink);
-  text-decoration: none;
-}
-.nav-brand-mobile img {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  object-fit: contain;
-}
-
-nav { padding-top: 5px; padding-bottom: 5px; box-shadow: 0 18px 40px -16px rgba(232, 21, 140, 0.30); background: rgba(255, 255, 255, 0.95); }
+header.scrolled nav { padding-top: 5px; padding-bottom: 5px; box-shadow: 0 18px 40px -16px rgba(232, 21, 140, 0.30); background: rgba(255, 255, 255, 0.95); }
 .nav-links { display: flex; align-items: center; gap: 6px; }
 .nav-link { font-size: 14.5px; font-weight: 600; color: var(--ink-soft); position: relative; padding: 10px 16px; cursor: pointer; border-radius: var(--radius-pill); transition: all .2s ease; }
 .nav-link:hover, .nav-link.active { color: var(--magenta-deep); background: var(--magenta-light); }
@@ -363,12 +327,4 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
   }
 }
 
-@media (max-width: 760px) {
-  nav {
-    justify-content: space-between;
-    padding: 8px 16px;
-  }
-  .nav-brand-mobile {
-    display: flex;
-  }
-}
+
