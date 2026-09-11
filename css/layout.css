@@ -286,8 +286,8 @@ footer { background: var(--ink); color: #EDE9F5; padding: 72px 0 26px; position:
 
 /* -- Layout overrides -- */
 .footer-mho-logo { display: block; margin: 0 auto; width: 300px !important; max-width: 100% !important; height: auto !important; background: transparent !important; padding: 0 !important; border-radius: 0 !important; opacity: 0.98; transition: opacity .2s ease, transform .2s ease; transform: none !important; filter: drop-shadow(0 4px 14px rgba(0,0,0,0.22)); }
-#val-img-1 { mix-blend-mode: multiply; transform: scale(1.6); transform-origin: center center; }
-.value-card:hover #val-img-1 { transform: scale(1.7) rotate(-2deg); }
+#val-img-1 { mix-blend-mode: multiply; transform: scale(1.6) translateX(-18px); transform-origin: center center; }
+.value-card:hover #val-img-1 { transform: scale(1.7) translateX(-18px) rotate(-2deg); }
 #val-img-2, #val-img-3, #val-img-4, #val-img-5, #val-img-6, #val-img-7 { transform: none !important; transform-origin: center center; }
 .value-card:hover #val-img-2,
 .value-card:hover #val-img-3,
