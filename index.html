@@ -24,25 +24,6 @@
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/sections.css?v=1789110829">
-<script>
-(function(){
-  try {
-    /* Remove any stale position for #val-img-1 — it is now CSS-controlled */
-    var stored = JSON.parse(localStorage.getItem('msc_image_positions') || '{}');
-    if (stored['#val-img-1']) { delete stored['#val-img-1']; localStorage.setItem('msc_image_positions', JSON.stringify(stored)); }
-    var pos = stored;
-    var css = '';
-    for (var sel in pos) {
-      /* Skip val-img-1 — its layout is handled by CSS, not localStorage */
-      if (sel === '#val-img-1') continue;
-      var p = pos[sel];
-      var scale = p.scale !== undefined ? p.scale : 1;
-      css += sel + ' { animation: none; opacity: 1; transform-origin: top left; transform: translate(' + (p.left||0) + 'px, ' + (p.top||0) + 'px) scale(' + scale + '); }\n';
-    }
-    if (css) document.write('<style>' + css + '</style>');
-  } catch(e){}
-})();
-</script>
 </head>
 <body>
 
@@ -854,7 +835,6 @@
 <script src="js/content-loader.js?v=1789107878"></script>
 <script src="js/ui.js?v=1789107681"></script>
 <script src="js/form.js"></script>
-<script src="js/image-editor.js"></script>
 
 </body>
 </html>
