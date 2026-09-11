@@ -29,7 +29,7 @@
 }
 .value-img-wrap {
   width: 100%;
-  height: 165px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,10 +45,9 @@
   display: block;
   margin: 0 auto;
   transition: transform .4s cubic-bezier(.34,1.4,.64,1);
-  transform: none !important;
 }
 .value-card:hover .value-drag-img {
-  transform: scale(1.08) rotate(-2deg) !important;
+  transform: scale(1.08) rotate(-2deg);
 }
 .value-card h3 { font-size: 20px; margin-bottom: 12px; font-weight: 700; color: var(--ink); }
 .value-card p { font-size: 15px; color: var(--ink-soft); line-height: 1.6; }
