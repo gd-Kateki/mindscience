@@ -88,15 +88,20 @@ function renderSpotlight(e) {
 }
 
 function renderTestimonials(items) {
-  const grid = document.getElementById('testimonialsGrid'); if (!grid) return;
-  grid.innerHTML = items.map(t => `
-    <div class="testimonial-card reveal">
-      <div class="stars">${renderStars(t.stars)}</div><p class="quote">${t.quote}</p>
-      <div class="testimonial-who">
-        <div class="testimonial-avatar" style="background: linear-gradient(135deg, ${t.gradientFrom}, ${t.gradientTo});">${t.initial}</div>
-        <div><h4>${t.name}</h4><span>${t.service}</span></div>
+  const track = document.getElementById('reviewsTrack'); if (!track) return;
+  track.innerHTML = items.map(t => {
+    const needsMore = t.quote && t.quote.length > 180;
+    const btn = needsMore ? `<button class="review-read-more" onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.previousElementSibling.classList.contains('expanded') ? 'Read less' : 'Read more';">Read more</button>` : '';
+    return `
+    <div class="review-card">
+      <div class="review-quote-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 1.5 0 2.5 1 2.5 3 0 1.5-1.5 3-3.5 3v2z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 1.5 0 2.5 1 2.5 3 0 1.5-1.5 3-3.5 3v2z"/></svg>
       </div>
-    </div>`).join('');
+      <div class="review-body">
+        <p class="quote">${t.quote}</p>
+      </div>${btn}
+    </div>`;
+  }).join('');
 }
 
 function renderBlog(posts) {

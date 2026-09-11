@@ -1,29 +1,13 @@
 window.DATA_testimonials = [
-  {
-    "quote": "I finally felt heard instead of just diagnosed, and the online sessions fit around my work schedule.",
-    "name": "Client",
-    "service": "Individual Therapy",
-    "initial": "A",
-    "stars": 5,
-    "gradientFrom": "var(--purple)",
-    "gradientTo": "var(--magenta)"
-  },
-  {
-    "quote": "Couples therapy here gave us tools we actually use every week, not just theory.",
-    "name": "Client",
-    "service": "Couples & Family Therapy",
-    "initial": "B",
-    "stars": 5,
-    "gradientFrom": "var(--teal)",
-    "gradientTo": "var(--orange)"
-  },
-  {
-    "quote": "My son looks forward to his sessions now — that alone tells me we found the right place.",
-    "name": "Client",
-    "service": "Child & Adolescent Support",
-    "initial": "C",
-    "stars": 5,
-    "gradientFrom": "var(--orange)",
-    "gradientTo": "var(--purple)"
-  }
+  {"quote": "Mindscience clinic gave me a space to talk about what I was going through and slowly is helping me reconnect with my routine and the things that mattered to me."},
+  {"quote": "I had reached a point where even thinking about exams would make me panic. I would sit with my books for hours but couldn\u2019t focus. During exams my mind would go completely blank even when I had studied. I was constantly frustrated with myself. Coming to Mindscience Clinic helped me understand what was happening and learn how to manage it. The team was patient and supportive, and never made me feel like I wasn\u2019t trying hard enough. Somewhere I have also found myself to build trust with Mindscience and their team. It has been a journey that my therapist and I have been a part of since the very first day. She has taught me to regulate my anxiety in a very accepting manner which is like a tool for me. Today I feel much more confident about exams and don\u2019t have the same fear every time I sit down to study."},
+  {"quote": "I had been keeping a lot of things to myself and didn't realise how much it was affecting me. Mindscience gave me a safe space to talk about it, which made it easier to process my emotions instead of constantly pushing them aside."},
+  {"quote": "A very well-managed clinic with a warm and understanding team. The sessions never feel rushed, and there is a genuine effort to help you improve at your own pace. I\u2019m extremely satisfied with the treatment I received. I was nervous before my first appointment, but the entire team made me feel comfortable almost immediately. Would definitely recommend."},
+  {"quote": "I kept having the same arguments with my partner and couldn't understand why we were getting stuck in the same cycle. Therapy helped me recognise my communication patterns and understand both my emotions and my partner's perspective better."},
+  {"quote": "I started a new job which brought a lot of stress and self-doubt. I was constantly questioning whether I had made the right decision or not, and now mindscience clinic is helping me adjust to the change and become more confident in handling new situations. My therapist always ensures to create a safe, non-judgmental space and approaches every session with empathy and intelligence. Her guidance has helped me gain clarity, emotional strength, and confidence."},
+  {"quote": "I came in because my sleep, concentration, and daily life was messed up. Being in touch with Mindscience and their sessions helped me understand where a lot of my anxiety was coming from and gave me strategies that I could actually use when I felt overwhelmed."},
+  {"quote": "I genuinely didn't know how much longer I could continue. I was having thoughts of ending my life and had become very good at hiding how bad things had actually become. I was extremely hesitant to speak about it because I was afraid of being judged or not being understood. What helped was that I was taken seriously without being made to feel like a problem that needed to be fixed. The support I received during the worst phase made a difference. I am still working through things, but I no longer feel as hopeless as I once did."},
+  {"quote": "If you guys are looking for your stability and a supportive environment for yourself, this is the place you should be at. Excellent treatment given and once you co-operate results are right around the corner. Extremely happy and content with the staff!"},
+  {"quote": "I had been feeling low for quite some time and honestly didn\u2019t know how to get myself out of it. I stopped enjoying things, wasn\u2019t able to meet my friends and kept to myself most of the time, even simple everyday things started feeling exhausting. My parents got really worried and I finally decided to approach the Mindscience Clinic. It was difficult at first, but my therapist made me feel comfortable and actually listened to me and what felt different was that he didn't try to rush me or give me just the usual \u201cthink positive\u201d advice but we actually worked through things one by one, and he helped me notice the patterns I was stuck in and deal with them differently. I\u2019m doing much better now and slowly getting back to being myself. Really grateful to the whole team."},
+  {"quote": "I had already tried a few therapists before coming to Mindscience Clinic, and I was also taking medication prescribed by my psychiatrist for depression. Honestly, I had started feeling like nothing was really going to change. I came to Mindscience about five months ago without expecting too much. Slowly, I started noticing small changes, getting out of bed on time, doing things I had been putting off, talking to people again and actually feeling like doing things instead of forcing myself. I finally feel like I'm moving forward. The team has been really patient and supportive throughout, and I genuinely feel that I've been able to grow because of the space they've given me."}
 ];

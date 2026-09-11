@@ -201,6 +201,113 @@ function initUI() {
     });
   }
 
+  
+    // --- Reviews Carousel Logic ---
+  const reviewsTrack = document.getElementById('reviewsTrack');
+  const reviewsPrev = document.getElementById('reviewsPrev');
+  const reviewsNext = document.getElementById('reviewsNext');
+  const reviewsDots = document.getElementById('reviewsDots');
+
+  if (reviewsTrack) {
+    const cards = Array.from(reviewsTrack.querySelectorAll('.review-card'));
+    
+    function getCardWidth() {
+      if (!cards.length) return 0;
+      const card = cards[0];
+      const style = window.getComputedStyle(reviewsTrack);
+      const gap = parseFloat(style.gap) || 24;
+      return card.offsetWidth + gap;
+    }
+
+    function getVisibleCount() {
+      const w = window.innerWidth;
+      if (w <= 680) return 1;
+      if (w <= 1024) return 2;
+      return 3;
+    }
+
+    function createDots() {
+      if (!reviewsDots) return;
+      reviewsDots.innerHTML = '';
+      const visible = getVisibleCount();
+      const dotCount = Math.max(1, cards.length - visible + 1);
+
+      for (let i = 0; i < dotCount; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Go to review slide ${i + 1}`);
+        dot.setAttribute('role', 'tab');
+        dot.addEventListener('click', () => {
+          reviewsTrack.scrollTo({
+            left: i * getCardWidth(),
+            behavior: 'smooth'
+          });
+        });
+        reviewsDots.appendChild(dot);
+      }
+    }
+
+    function updateActiveDot() {
+      if (!reviewsDots) return;
+      const scrollLeft = reviewsTrack.scrollLeft;
+      const cardW = getCardWidth();
+      if (!cardW) return;
+      const activeIdx = Math.min(
+        Math.round(scrollLeft / cardW),
+        reviewsDots.querySelectorAll('.carousel-dot').length - 1
+      );
+      const dots = reviewsDots.querySelectorAll('.carousel-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === activeIdx);
+      });
+    }
+
+    if (reviewsPrev) {
+      reviewsPrev.addEventListener('click', () => {
+        const cardW = getCardWidth();
+        reviewsTrack.scrollBy({ left: -cardW, behavior: 'smooth' });
+      });
+    }
+
+    if (reviewsNext) {
+      reviewsNext.addEventListener('click', () => {
+        const cardW = getCardWidth();
+        reviewsTrack.scrollBy({ left: cardW, behavior: 'smooth' });
+      });
+    }
+
+    // Drag to scroll on desktop
+    let isDown = false;
+    let startX = 0;
+    let scrollLeftVal = 0;
+    reviewsTrack.addEventListener('mousedown', e => {
+      isDown = true;
+      reviewsTrack.classList.add('grabbing');
+      startX = e.pageX - reviewsTrack.offsetLeft;
+      scrollLeftVal = reviewsTrack.scrollLeft;
+    });
+    window.addEventListener('mouseup', () => {
+      isDown = false;
+      reviewsTrack.classList.remove('grabbing');
+    });
+    reviewsTrack.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - reviewsTrack.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      reviewsTrack.scrollLeft = scrollLeftVal - walk;
+    });
+
+    reviewsTrack.addEventListener('scroll', updateActiveDot, { passive: true });
+    window.addEventListener('resize', () => {
+      createDots();
+      updateActiveDot();
+    }, { passive: true });
+
+    createDots();
+    updateActiveDot();
+  }
+
   // --- Hero Video Modal Lightbox ---
   const heroVideoCard = document.getElementById('heroVideoCard') || document.querySelector('.hero-video-frame');
   const videoModal = document.getElementById('videoModal');
