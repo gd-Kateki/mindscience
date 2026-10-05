@@ -20,6 +20,7 @@ header.scrolled .nav-cta { padding: 11px 22px; }
 .nav-link.has-dropdown .chev { transition: transform .25s ease; flex: none; }
 .nav-item.open .nav-link.has-dropdown .chev, .nav-item:hover .nav-link.has-dropdown .chev { transform: rotate(180deg); }
 .nav-dropdown { position: absolute; top: calc(100% + 10px); left: 50%; transform: translate(-50%, 8px); min-width: 190px; background: var(--panel); border: 1.5px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: 8px; display: flex; flex-direction: column; gap: 2px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .2s ease, transform .2s ease, visibility .2s ease; z-index: 50; }
+.nav-dropdown::before { content: ''; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; }
 .nav-item:hover .nav-dropdown, .nav-item.open .nav-dropdown { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0); }
 .nav-dropdown a { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-radius: 12px; font-size: 14px; font-weight: 600; color: var(--ink-soft); transition: background .18s ease, color .18s ease; }
 .nav-dropdown a:hover, .nav-dropdown a:focus-visible { background: var(--magenta-light); color: var(--magenta-deep); }
